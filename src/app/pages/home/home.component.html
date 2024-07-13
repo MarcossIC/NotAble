@@ -1,0 +1,25 @@
+<main>
+  <div class="btn-container">
+    <button (click)="startNote()">Start Recording</button>
+    <button (click)="saveNote()">Stop Recording</button>
+    <button (click)="recordingNotes.pauseNote()">Pause Recording</button>
+    <button (click)="recordingNotes.resumeNote()">Resume Recording</button>
+    <button
+      (click)="playLastNote(audio)"
+      [disabled]="!notesService.lastNote.audio"
+    >
+      Reproducir Ultima Grabación
+    </button>
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <audio #audio controls></audio>
+  <br />
+  <br />
+  <br />
+
+  <p>Se esta grabando: {{ recordingNotes.isStartingRecordNote() }}</p>
+  <p>Note count: {{ notesService.notes.length }}</p>
+</main>
