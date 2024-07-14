@@ -2,10 +2,11 @@ import { inject, Injectable, signal } from '@angular/core';
 import { EMPTYNOTE, Note, NOTEKEYS } from '../models/note';
 import { AudioTranscriberSpeechmatics } from '../lib/AudioTranscriberSpeechmatics.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AudioTranscriberGCP } from '../lib/AudioTranscriberGCP.service';
 
 @Injectable({ providedIn: 'root' })
 export class NotesService {
-  private audioTranscriber = inject(AudioTranscriberSpeechmatics);
+  private audioTranscriber = inject(AudioTranscriberGCP);
   private lastNote$ = signal<Note>(EMPTYNOTE);
   private notes$ = signal<Note[]>([]);
 

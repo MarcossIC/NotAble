@@ -1,11 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import { AudioRecorderService } from '../lib/AudioRecorder.service';
-import { AudioTranscriberSpeechmatics } from '../lib/AudioTranscriberSpeechmatics.service';
+import { AudioTranscriberGCP } from '../lib/AudioTranscriberGCP.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecordingNotes {
   private recorder = inject(AudioRecorderService);
-  private audioTranscriber = inject(AudioTranscriberSpeechmatics);
+  private audioTranscriber = inject(AudioTranscriberGCP);
 
   constructor() {}
 

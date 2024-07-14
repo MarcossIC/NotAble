@@ -6,4 +6,6 @@ export const environment = {
   production: false,
   SPEECHMATICS_API_KEY: 'ADD API KEY FOR THIS SERVICE',
   SPEECHMATICS_URL: 'ADD API URL FOR THIS SERVICE',
+  GCP_API_KEY: 'ADD API KEY OF GCP(Google cloud platform) Speech to text',
+  GCP_URL: 'ADD API URL FOR THIS SERVICE',
 };

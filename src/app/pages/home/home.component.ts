@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RecordingNotes } from '../../service/RecordingNotes.service';
 import { NotesService } from '../../service/Notes.service';
 import { EMPTYNOTE } from '../../models/note';
-import { text } from 'stream/consumers';
 
 @Component({
   selector: 'home-page',

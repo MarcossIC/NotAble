@@ -4,6 +4,7 @@ export abstract class AbstractAudioTranscriber {
   protected readonly API_KEY: string;
   protected readonly API_URL: string;
   protected readonly subject$ = new Subject<any>();
+  protected readonly REGEX = /audio\/(\w+)(?:;codecs=\w+)?/;
   constructor(API_KEY: string, API_URL: string) {
     this.API_KEY = API_KEY;
     this.API_URL = API_URL;

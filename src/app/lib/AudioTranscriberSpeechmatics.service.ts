@@ -5,17 +5,16 @@ import { catchError, delay, of, take, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Speechmatics } from 'speechmatics';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AudioTranscriberSpeechmatics extends AbstractAudioTranscriber {
   private http = inject(HttpClient);
-  private readonly REGEX = /audio\/(\w+)(?:;codecs=\w+)?/;
   private client: Speechmatics;
   constructor() {
     super(environment.SPEECHMATICS_API_KEY, environment.SPEECHMATICS_URL);
     this.client = new Speechmatics({ apiKey: this.API_KEY });
   }
 
-  public transcriber(input: Blob) {
+  public override transcriber(input: Blob) {
     if (!(input instanceof Blob)) {
       console.error('Input is not a Blob');
       return;
@@ -124,7 +123,7 @@ export class AudioTranscriberSpeechmatics extends AbstractAudioTranscriber {
     return `${this.API_URL}${jobId}/transcript?format=txt`;
   }
 
-  public get getLastTextTranscript() {
+  public override get getLastTextTranscript() {
     return this.subject$.asObservable();
   }
 }
