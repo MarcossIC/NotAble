@@ -1,9 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import { AudioRecorderService } from '../lib/AudioRecorder.service';
+import { AudioTranscriberSpeechmatics } from '../lib/AudioTranscriberSpeechmatics.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecordingNotes {
   private recorder = inject(AudioRecorderService);
+  private audioTranscriber = inject(AudioTranscriberSpeechmatics);
 
   constructor() {}
 
@@ -24,10 +26,17 @@ export class RecordingNotes {
   }
 
   public async stopNote() {
-    return await this.recorder.stopRecording();
+    try {
+      const audioBlob = await this.recorder.stopRecording();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      await this.audioTranscriber.transcriber(audioBlob);
+      this.recorder.saveRecording(audioBlob);
+      return audioUrl;
+    } catch (error) {
+      console.error('Error stopping note:', error);
+      throw error;
+    }
   }
-
-  private blobToBase64() {}
 
   public playNote(audioUrl: string, audioElement: HTMLAudioElement) {
     if (!!audioUrl) {

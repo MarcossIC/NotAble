@@ -1,8 +1,11 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { EMPTYNOTE, Note, NOTEKEYS } from '../models/note';
+import { AudioTranscriberSpeechmatics } from '../lib/AudioTranscriberSpeechmatics.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Injectable({ providedIn: 'root' })
 export class NotesService {
+  private audioTranscriber = inject(AudioTranscriberSpeechmatics);
   private lastNote$ = signal<Note>(EMPTYNOTE);
   private notes$ = signal<Note[]>([]);
 
@@ -14,12 +17,32 @@ export class NotesService {
 
       this.lastNote$.set({ ...lastNoteParsed, audio: base64Audio });
     }
+    this.audioTranscriber.getLastTextTranscript
+      .pipe(takeUntilDestroyed())
+      .subscribe((transcript) => {
+        console.log({ transcript });
+        this.lastNote$.update((note: Note) => {
+          note.text = transcript;
+          return note;
+        });
+        this.addNote(this.lastNote);
+      });
   }
 
   public addNote(newNote: Note) {
-    const notes = [...this.notes, newNote];
-    this.notes$.set(notes);
+    this.notes$.update((notes) => {
+      notes.push(newNote);
+      return notes;
+    });
   }
+
+  public updateNote({ text }: Note, index: number) {
+    this.notes$.update((notes) => {
+      notes[index].text = text;
+      return notes;
+    });
+  }
+
   public cleanNotes() {
     this.notes$.set([]);
   }

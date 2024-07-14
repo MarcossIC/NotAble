@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecordingNotes } from '../../service/RecordingNotes.service';
 import { NotesService } from '../../service/Notes.service';
+import { EMPTYNOTE } from '../../models/note';
+import { text } from 'stream/consumers';
 
 @Component({
   selector: 'home-page',
@@ -15,22 +17,23 @@ export class HomePageComponent {
   public notesService = inject(NotesService);
 
   public startNote() {
-    console.log('Inicie la grabacion');
     this.recordingNotes.startNote();
     this.notesService.cleanLast();
   }
 
   public saveNote() {
     this.recordingNotes.stopNote().then((audioUrl) => {
-      const note = { text: '', audio: audioUrl, tags: [] };
+      const note = {
+        ...EMPTYNOTE,
+        audio: audioUrl,
+        text: 'Load transcription...',
+      };
       this.notesService.lastNote = note;
-      this.notesService.addNote(note);
     });
   }
 
   public playLastNote(audioHtml: HTMLAudioElement) {
     const last = this.notesService.lastNote;
-    console.log({ last });
     this.recordingNotes.playNote(last.audio, audioHtml);
   }
 }

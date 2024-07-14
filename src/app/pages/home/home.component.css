@@ -38,3 +38,57 @@ button {
 p {
   color: #141414;
 }
+.note-area {
+  position: relative;
+  width: 200px;
+  height: 100%;
+  padding-block: 4px;
+  padding-inline-end: 25px;
+  padding-inline-start: 10px;
+}
+
+textarea {
+  background-color: var(--notable-primary-100);
+  color: var(--notable-text-white);
+  caret-color: var(--notable-primary-500);
+  height: auto;
+  width: 100%;
+  min-height: 40px;
+  font-size: 1rem;
+  resize: none;
+  border: none;
+  outline: none;
+  scrollbar-width: 0px;
+  scrollbar-arrow-color: transparent;
+  scrollbar-track-color: transparent;
+  scrollbar-gutter: unset;
+  field-sizing: content;
+
+  &:focus,
+  &:hover,
+  &:active {
+    border: none;
+    outline: none;
+  }
+}
+
+.play-note {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  color: var(--notable-primary-500);
+  cursor: pointer;
+}
+
+.note-title {
+  color: var(--notable-text-white);
+  font-weight: 600;
+  font-size: 1.115rem;
+  margin-block: 0;
+  max-height: 80px;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+  overflow: hidden;
+  padding-block-end: 4px;
+  min-height: 30px;
+}

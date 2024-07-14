@@ -19,7 +19,23 @@
   <br />
   <br />
   <br />
+  <br />
+  <br />
 
-  <p>Se esta grabando: {{ recordingNotes.isStartingRecordNote() }}</p>
-  <p>Note count: {{ notesService.notes.length }}</p>
+  <div class="note-area">
+    <h3 class="note-title">Waiting...</h3>
+    <textarea [value]="notesService.lastNote.text"></textarea>
+    <div class="play-note">
+      <svg
+        width="22px"
+        height="22px"
+        viewBox="0 -960 960 960"
+        fill="currentColor"
+      >
+        <path
+          d="M320-202v-560l440 280-440 280Zm66.67-280Zm0 158.67L636-482 386.67-640.67v317.34Z"
+        />
+      </svg>
+    </div>
+  </div>
 </main>
