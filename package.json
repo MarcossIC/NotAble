@@ -20,6 +20,7 @@
     "@angular/router": "^17.0.0",
     "@google-cloud/speech": "^6.6.1",
     "ai": "^3.2.22",
+    "assemblyai": "^4.6.0",
     "rxjs": "~7.8.0",
     "speechmatics": "^4.0.0",
     "tslib": "^2.3.0",

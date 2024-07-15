@@ -1,13 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { AudioRecorderService } from '../lib/AudioRecorder.service';
 import { AudioTranscriberGCP } from '../lib/AudioTranscriberGCP.service';
+import { AudioTranscriberAssemblyai } from '../lib/AudioTranscriberAssemblyai.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecordingNotes {
   private recorder = inject(AudioRecorderService);
-  private audioTranscriber = inject(AudioTranscriberGCP);
-
-  constructor() {}
+  private audioTranscriber = inject(AudioTranscriberAssemblyai);
 
   public isStartingRecordNote() {
     return this.recorder.isRecording();
@@ -29,7 +28,7 @@ export class RecordingNotes {
     try {
       const audioBlob = await this.recorder.stopRecording();
       const audioUrl = URL.createObjectURL(audioBlob);
-      await this.audioTranscriber.transcriber(audioBlob);
+      this.audioTranscriber.transcriber(audioBlob);
       this.recorder.saveRecording(audioBlob);
       return audioUrl;
     } catch (error) {
