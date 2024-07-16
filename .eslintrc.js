@@ -8,8 +8,7 @@ module.exports = {
 	],
 	ignorePatterns: ['dist', '.eslintrc.js'],
 	parser: '@typescript-eslint/parser',
-	plugins: ['react-refresh', 'prettier', '@typescript-eslint'],
-	parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+	plugins: [ 'prettier', '@typescript-eslint'],
 	rules: {
 		'prettier/prettier': 'error',
 		'brace-style': [2, '1tbs', {}],
