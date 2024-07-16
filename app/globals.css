@@ -61,7 +61,6 @@ img {
   
   input[type="number"] {
     -moz-appearance: textfield;
-    appearance: textfield;
   }
 
   h1,
