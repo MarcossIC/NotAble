@@ -1,7 +1,11 @@
 module.exports = {
 	root: true,
 	env: { browser: true, node: true, es2020: true },
-	extends: ['next', 'prettier', 'eslint:recommended'],
+	extends: [
+		'next',
+		'prettier',
+		'eslint:recommended',
+	],
 	ignorePatterns: ['dist', '.eslintrc.js'],
 	parser: '@typescript-eslint/parser',
 	plugins: ['react-refresh', 'prettier', '@typescript-eslint'],
@@ -98,7 +102,10 @@ module.exports = {
 		'no-extra-bind': 2,
 		'no-fallthrough': 2,
 		'no-floating-decimal': 2,
-		'no-implicit-coercion': [2, { boolean: true, number: true, string: true }],
+		'no-implicit-coercion': [
+			2,
+			{ boolean: true, number: true, string: true },
+		],
 		'no-implied-eval': 2,
 		'no-invalid-this': 1,
 		'no-iterator': 2,
