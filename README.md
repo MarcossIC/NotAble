@@ -1,27 +1,42 @@
-# NotAble
+# Vercel AI SDK, Next.js, and OpenAI Chat Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.2.
+This example shows how to use the [Vercel AI SDK](https://sdk.vercel.ai/docs) with [Next.js](https://nextjs.org/) and [OpenAI](https://openai.com) to create a ChatGPT-like AI-powered streaming chat bot.
 
-## Development server
+## Deploy your own
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=ai-sdk-example):
 
-## Code scaffolding
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai%2Ftree%2Fmain%2Fexamples%2Fnext-openai&env=OPENAI_API_KEY&envDescription=OpenAI%20API%20Key&envLink=https%3A%2F%2Fplatform.openai.com%2Faccount%2Fapi-keys&project-name=vercel-ai-chat-openai&repository-name=vercel-ai-chat-openai)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to use
 
-## Build
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npx create-next-app --example https://github.com/vercel/ai/tree/main/examples/next-openai next-openai-app
+```
 
-## Running unit tests
+```bash
+yarn create next-app --example https://github.com/vercel/ai/tree/main/examples/next-openai next-openai-app
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+pnpm create next-app --example https://github.com/vercel/ai/tree/main/examples/next-openai next-openai-app
+```
 
-## Running end-to-end tests
+To run the example locally you need to:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Sign up at [OpenAI's Developer Platform](https://platform.openai.com/signup).
+2. Go to [OpenAI's dashboard](https://platform.openai.com/account/api-keys) and create an API KEY.
+3. Set the required OpenAI environment variable as the token value as shown [the example env file](./.env.local.example) but in a new file called `.env.local`
+4. `pnpm install` to install the required dependencies.
+5. `pnpm dev` to launch the development server.
 
-## Further help
+## Learn More
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To learn more about OpenAI, Next.js, and the Vercel AI SDK take a look at the following resources:
+
+- [Vercel AI SDK docs](https://sdk.vercel.ai/docs)
+- [Vercel AI Playground](https://play.vercel.ai)
+- [OpenAI Documentation](https://platform.openai.com/docs) - learn about OpenAI features and API.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
