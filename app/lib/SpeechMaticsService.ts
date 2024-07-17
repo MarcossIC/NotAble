@@ -9,7 +9,7 @@ export default async function transcribe(audio: Blob | File, type: string) {
 	const client = new Speechmatics({ apiKey: apiKey! });
 
 	const match = REGEX.exec(type);
-	const ext = !!match ? match[1] : '';
+	const ext = match ? match[1] : '';
 	try {
 		return await client.batch.transcribe(
 			{ data: audio, fileName: `audio.${ext}` },
