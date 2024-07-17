@@ -1,4 +1,4 @@
-"use server";
+'use server';
 
 import { Speechmatics } from 'speechmatics';
 
@@ -11,16 +11,16 @@ export default async function transcribe(audio: Blob | File, type: string) {
 	const match = REGEX.exec(type);
 	const ext = match ? match[1] : '';
 	try {
-		return await client.batch.transcribe(
+		return (await client.batch.transcribe(
 			{ data: audio, fileName: `audio.${ext}` },
 			{
 				transcription_config: { language: 'es', operating_point: 'standard' },
 			},
 			'text'
-		) as string;
-	} catch (err:any) {
-        console.error('Error creating transcription job:', err);
-        console.error('Error response body:', err.error);
+		)) as string;
+	} catch (err: any) {
+		console.error('Error creating transcription job:', err);
+		console.error('Error response body:', err.error);
 		return '';
 	}
 }

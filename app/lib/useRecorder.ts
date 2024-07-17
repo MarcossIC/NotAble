@@ -1,16 +1,16 @@
-import { useRef, useState } from "react";
-import AudioRecorderService from "./AudioRecorderService";
+import { useRef, useState } from 'react';
+import AudioRecorderService from './AudioRecorderService';
 
-export default function useRecorder(){
-    const [recorderService] = useState(new AudioRecorderService());
-    const [recorder, setRecorder] = useState<MediaRecorder | undefined>();
+export default function useRecorder() {
+	const [recorderService] = useState(new AudioRecorderService());
+	const [recorder, setRecorder] = useState<MediaRecorder | undefined>();
 	const [isNotSupported, setIsNotSupported] = useState(false);
 	const [isPaused, setIsPaused] = useState(false);
-    const audioChunks = useRef<Blob[]>([]);
+	const audioChunks = useRef<Blob[]>([]);
 
-	const startRecording = ()=>{
-		recorderService.startRecording().then((newRecorder)=>{
-			if(newRecorder){
+	const startRecording = () => {
+		recorderService.startRecording().then((newRecorder) => {
+			if (newRecorder) {
 				newRecorder.ondataavailable = (event) => {
 					audioChunks.current.push(event.data);
 				};
@@ -21,20 +21,19 @@ export default function useRecorder(){
 				setIsNotSupported(true);
 			}
 		});
-	}
+	};
 
-	const stopRecording = ()=>{
-		return recorderService.stopRecording(recorder, audioChunks.current).then((audioBlob)=>
-			 recorderService.blobToBase64(audioBlob).then((audiobase64)=>{
+	const stopRecording = () => {
+		return recorderService.stopRecording(recorder, audioChunks.current).then((audioBlob) =>
+			recorderService.blobToBase64(audioBlob).then((audiobase64) => {
 				setIsPaused(false);
 				audioChunks.current = [];
 				setRecorder(undefined);
 				const type = audioBlob.type;
 				return [audiobase64, type];
-			 })	
+			})
 		);
-	}
-
+	};
 
 	const pauseAction = () => {
 		if (!recorderService.isPaused(recorder)) {
@@ -47,6 +46,5 @@ export default function useRecorder(){
 		}
 	};
 
-
-    return {isRecording: recorderService.isRecording(recorder), isPaused, isNotSupported,stopRecording,startRecording,pauseAction};
+	return { isRecording: recorderService.isRecording(recorder), isPaused, isNotSupported, stopRecording, startRecording, pauseAction };
 }
