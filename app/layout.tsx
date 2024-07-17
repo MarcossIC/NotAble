@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import './globals.css';
 import { Inter } from 'next/font/google';
 
@@ -8,7 +9,7 @@ export const metadata = {
 	description: 'Webapp to take voice notes with AI.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang='en'>
 			<body className={inter.className}>{children}</body>

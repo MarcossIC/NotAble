@@ -16,4 +16,6 @@ export default function useUploadAudio(){
           }
         }
       };
+
+  return  {uploadAudio}
 }
