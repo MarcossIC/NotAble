@@ -1,4 +1,38 @@
-.signUpButton {
+.signInContainer {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 1%;
+	right: 1%;
+}
+
+.menu {
+	position: absolute;
+	top: 1%;
+	right: 1%;
+	opacity: 0;
+	visibility: hidden;
+	height: 0px;
+	width: 275px;
+	pointer-events: none;
+	background-color: #fff;
+	border-radius: 1rem;
+	transition: all 400ms ease 120ms;
+	margin-block-start: 2rem;
+}
+
+.open {
+	opacity: 1;
+	visibility: visible;
+	height: 95px;
+	pointer-events: all;
+	display: flex;
+	flex-direction: column;
+	margin-block-start: 3rem;
+	transition: all 400ms ease 120ms;
+}
+
+.signInButton {
 	--button-w: 48px;
 	--button-text: ' ';
 	--button-text-opacity: 0;
@@ -6,6 +40,7 @@
 	position: absolute;
 	top: 1%;
 	right: 1%;
+
 	border-radius: 1rem;
 	border: 2px solid var(--button-border-color);
 	padding-inline: 0.6rem;
