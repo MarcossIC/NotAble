@@ -1,19 +1,22 @@
 'use client';
 
-import { useState } from 'react';
 import { GithubSignInButton, GoogleSignInButton } from './AuthButtons';
 import css from './signin.module.css';
+import useToggle from '../lib/useTogle';
+import useClickOutside from '../lib/useClickOutside';
+import { useRef } from 'react';
 
 export default function SignUpButton() {
-	//const [open, togle] = use
-	const [open, setOpen] = useState(false);
-	const handleClick = () => {
-		setOpen((current) => !current);
-	};
+	const [open, togle] = useToggle(false);
+	const menuRef = useRef<any>();
+	const openRef = useRef<any>();
+	const handleClick = () => togle();
+	useClickOutside(menuRef, handleClick, openRef);
 
 	return (
 		<>
 			<button
+				ref={openRef}
 				className={css.signInButton}
 				onClick={handleClick}>
 				<svg
@@ -26,7 +29,9 @@ export default function SignUpButton() {
 				</svg>
 			</button>
 
-			<div className={`${css.menu} ${open ? css.open : 'close'}`}>
+			<div
+				className={`${css.menu} ${open ? css.open : 'close'}`}
+				ref={menuRef}>
 				<GoogleSignInButton />
 				<GithubSignInButton />
 			</div>
