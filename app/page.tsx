@@ -1,18 +1,23 @@
+'use client';
+
 import Recorder from './ui/Recorder';
 import AudioMediaPlayer from './ui/AudioMediaPlayer';
 import NotesPad from './ui/NotesPad';
-import SignInButton from './ui/SignInButton';
+import Authentication from './ui/auth/Authentication';
+import NextAuthProvider from './SessionWrapper';
 
 export default function App() {
 	return (
-		<div className='flex flex-col w-full h-full min-h-dvh justify-end'>
-			<SignInButton />
-			<NotesPad />
+		<NextAuthProvider>
+			<div className='flex flex-col w-full h-full min-h-dvh justify-end'>
+				<Authentication />
+				<NotesPad />
 
-			<div>
-				<Recorder />
-				<AudioMediaPlayer />
+				<div>
+					<Recorder />
+					<AudioMediaPlayer />
+				</div>
 			</div>
-		</div>
+		</NextAuthProvider>
 	);
 }

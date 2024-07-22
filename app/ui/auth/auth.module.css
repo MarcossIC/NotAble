@@ -1,11 +1,3 @@
-.signInContainer {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	top: 1%;
-	right: 1%;
-}
-
 .menu {
 	position: absolute;
 	top: 1%;
@@ -32,7 +24,7 @@
 	transition: all 400ms ease 120ms;
 }
 
-.signInButton {
+.authButton {
 	--button-w: 48px;
 	--button-text: ' ';
 	--button-text-opacity: 0;
@@ -64,14 +56,26 @@
 		content: var(--button-text);
 		opacity: var(--button-text-opacity);
 		text-wrap: nowrap;
+		white-space: nowrap;
 		transition: all 300ms ease 250ms;
 		z-index: 4;
 	}
 
 	&:hover {
 		--button-w: 120px;
-		--button-text: 'Sign in';
+
 		--button-text-opacity: 1;
 		--button-border-color: var(--notable-primary-500);
+	}
+}
+
+.signIn {
+	&:hover {
+		--button-text: 'Sign in';
+	}
+}
+.logOut {
+	&:hover {
+		--button-text: 'Sign out';
 	}
 }

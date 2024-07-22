@@ -7,8 +7,8 @@
 			{
 				"vars": "local",
 				"varsIgnorePattern": "[iI]gnored",
-				"argsIgnorePattern": "^_",
 				"args": "none",
+				"argsIgnorePattern": "[iI]gnored",
 				"caughtErrors": "all",
 				"destructuredArrayIgnorePattern": "^_",
 				"ignoreRestSiblings": true

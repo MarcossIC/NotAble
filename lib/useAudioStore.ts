@@ -1,7 +1,7 @@
 import { create, type StateCreator } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import type { SetFunction } from '../models/types';
-import type { StateInitializer, ZustandSetter } from '../models/zustandTypes';
+import type { SetFunction } from '../app/models/types';
+import type { StateInitializer, ZustandSetter } from '../app/models/zustandTypes';
 
 interface AudioStore {
 	audioString: string;

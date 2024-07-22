@@ -2,7 +2,7 @@
 
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import useAudioStore from '../lib/useAudioStore';
+import useAudioStore from '../../lib/useAudioStore';
 
 export default function AudioMediaPlayer() {
 	const { audioType, audioString } = useAudioStore();

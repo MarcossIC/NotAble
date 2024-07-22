@@ -1,7 +1,7 @@
 'use client';
 
-import useAudioStore from '../lib/useAudioStore';
-import useRecorder from '../lib/useRecorder';
+import useAudioStore from '@/lib/useAudioStore';
+import useRecorder from '@/lib/useRecorder';
 import css from './recorder.module.css';
 
 export default function Recorder() {
