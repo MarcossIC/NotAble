@@ -1,5 +1,6 @@
 import transcribe from '@/app/lib/SpeechMaticsService';
 import { NextResponse } from 'next/server';
+import { sql } from '@vercel/postgres';
 
 export const maxDuration = 30;
 
@@ -13,6 +14,8 @@ export async function POST(req: Request) {
 	}
 
 	const transcriptText = await transcribe(audio!, audioType!);
+
+	await sql`INSERT INTO Notes (Note, title) VALUES (${transcriptText}, '');`;
 
 	return NextResponse.json({ transcriptText }, { status: 200 });
 }

@@ -1,0 +1,42 @@
+.signUpButton {
+	--button-w: 48px;
+	--button-text: ' ';
+	--button-text-opacity: 0;
+	--button-border-color: var(--notable-primary-400);
+	position: absolute;
+	top: 1%;
+	right: 1%;
+	border-radius: 1rem;
+	border: 2px solid var(--button-border-color);
+	padding-inline: 0.6rem;
+	padding-block: 0.4rem;
+	width: var(--button-w);
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	transition-property: all;
+	transition-duration: 400ms;
+	transition-timing-function: ease;
+	transition: all 400ms ease 120ms;
+
+	& svg {
+		position: relative;
+		z-index: 5;
+	}
+
+	&::before {
+		position: relative;
+		content: var(--button-text);
+		opacity: var(--button-text-opacity);
+		text-wrap: nowrap;
+		transition: all 300ms ease 250ms;
+		z-index: 4;
+	}
+
+	&:hover {
+		--button-w: 120px;
+		--button-text: 'Sign in';
+		--button-text-opacity: 1;
+		--button-border-color: var(--notable-primary-500);
+	}
+}

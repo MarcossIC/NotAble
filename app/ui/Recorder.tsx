@@ -19,7 +19,7 @@ export default function Recorder() {
 		}
 	};
 	return (
-		<div className='w-[140px] h-fit flex justify-center items-center relative'>
+		<div className='w-[140px] h-fit mx-auto pb-2 flex justify-center items-center relative'>
 			<button
 				tabIndex={1}
 				onClick={recordingAction}
