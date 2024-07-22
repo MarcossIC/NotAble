@@ -3,14 +3,36 @@
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import useAudioStore from '../../lib/useAudioStore';
+import { useSession } from 'next-auth/react';
+import useTranscriptAudio from '@/lib/useTranscriptAudio';
+import { useEffect, useState } from 'react';
+import { blobToBase64 } from '@/lib/blobToBase64';
 
 export default function AudioMediaPlayer() {
-	const { audioType, audioString } = useAudioStore();
+	const { audio, audioType, setTextAudio } = useAudioStore();
+	const { data: session } = useSession();
+	const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
+	const transcript = useTranscriptAudio();
+
+	useEffect(() => {
+		if (audio !== null) {
+			if (session) {
+				transcript(audio, session.user.id || '').then((res) => {
+					setTextAudio(res);
+				});
+			}
+			blobToBase64(audio).then((audioString: string) => {
+				setAudioSrc(`data:${audioType};base64,${audioString}`);
+			});
+		} else {
+			setAudioSrc(undefined);
+		}
+	}, [audio]);
 
 	return (
 		<AudioPlayer
 			autoPlay
-			src={audioType ? `data:${audioType};base64,${audioString}` : undefined}
+			src={audioSrc}
 			layout='stacked-reverse'
 			autoPlayAfterSrcChange={true}
 			showSkipControls={false}
@@ -21,7 +43,7 @@ export default function AudioMediaPlayer() {
 			defaultCurrentTime={'0:0'}
 			customAdditionalControls={[]}
 			customVolumeControls={[]}
-			className={`${!audioType ? 'rhap_play-status--nocontent' : ''}`}
+			className={`${!audioSrc ? 'rhap_play-status--nocontent' : ''}`}
 		/>
 	);
 }

@@ -4,9 +4,7 @@ import githubLogo from '@/public/github.png';
 
 export default function GithubSignInButton() {
 	const handleClick = () => {
-		signIn('github').then((res) => {
-			console.log(res);
-		});
+		signIn('github');
 	};
 
 	return (

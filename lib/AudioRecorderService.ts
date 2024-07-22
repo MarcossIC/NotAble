@@ -1,6 +1,7 @@
+"use client";
+
 class AudioRecorderService {
 	public isRecording(mediaRecorder: MediaRecorder | undefined) {
-		console.log({ mediaRecorder });
 		return !!mediaRecorder && (mediaRecorder.state === 'recording' || mediaRecorder.state === 'paused');
 	}
 

@@ -1,1 +1,3 @@
-export type SetFunction<T> = (_: T) => void;
+export type SetFunction<T> = (updated: T) => void;
+
+export type StopRecording = [Blob, string];

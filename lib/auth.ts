@@ -1,5 +1,5 @@
 import { sql } from '@vercel/postgres';
-import {  type NextAuthOptions } from 'next-auth';
+import { type NextAuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 
@@ -15,23 +15,22 @@ export const authConfig: NextAuthOptions = {
 		}),
 	],
 	callbacks: {
-		async signIn({user}) {
+		async signIn({ user }) {
 			const email = user.email;
-			if(email){
+			if (email) {
 				const result = await sql`SELECT * FROM usertable WHERE email = ${email}`;
-				if(result.rowCount === 0){
+				if (result.rowCount === 0) {
 					user.id = crypto.randomUUID();
-					await sql`INSERT INTO usertable (id, name, email) VALUES (${user.id}, ${user.name || "noname"}, ${email})`;
+					await sql`INSERT INTO usertable (id, name, email) VALUES (${user.id}, ${user.name || 'noname'}, ${email})`;
 				} else {
 					const userSaved = result.rows[0];
-					console.log("userSaved: ", userSaved);
 					user.id = userSaved.id;
 				}
 			}
-		  return true;
+			return true;
 		},
 		async session({ session, token }) {
-			if(session.user){
+			if (session.user) {
 				session.user.id = token.id as string;
 			}
 
@@ -39,9 +38,9 @@ export const authConfig: NextAuthOptions = {
 		},
 		async jwt({ token, user }) {
 			if (user) {
-			  token.id = user.id;
+				token.id = user.id;
 			}
 			return token;
-		  },
-	}
+		},
+	},
 };

@@ -13,8 +13,13 @@ export default function Authentication() {
 	const [open, togle] = useToggle(false);
 	const menuRef = useRef<any>();
 	const openRef = useRef<any>();
-	const handleClick = () => togle();
-	useClickOutside(menuRef, handleClick, openRef);
+	const handleClick = () => {
+		togle();
+	};
+	const clickOutSide = () => {
+		if (open) togle();
+	};
+	useClickOutside(menuRef, clickOutSide, openRef);
 	const { data: session } = useSession();
 	if (session) {
 		return <SignOutButton />;

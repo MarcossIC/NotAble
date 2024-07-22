@@ -1,22 +1,22 @@
 import transcribe from '@/lib/SpeechMaticsService';
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
+import type { NoteDB } from '@/app/models/notesTypes';
 
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
 	const formData = await req.formData();
 	const userId = formData.get('userId') as string | null;
-	const audio = formData.get('audio') as File | null;
+	const audio = formData.get('audio') as Blob | null;
 	const audioType = formData.get('audioType') as string | null;
-
 	if (!audio || !audioType) {
 		return NextResponse.json({ error: 'Audio o tipo de audio no proporcionado' }, { status: 400 });
 	}
 
 	const transcriptText = await transcribe(audio!, audioType!);
-
-	await sql`INSERT INTO note (text, title, user_id) VALUES ( ${transcriptText}, '', ${userId});`;
+	const noteId = crypto.randomUUID();
+	await sql<NoteDB>`INSERT INTO note (id, text, title, user_id) VALUES (${noteId},${transcriptText},'',${userId});`;
 
 	return NextResponse.json({ transcriptText }, { status: 200 });
 }

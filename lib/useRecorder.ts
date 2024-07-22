@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import AudioRecorderService from './AudioRecorderService';
+import type { StopRecording } from '@/app/models/types';
 
 export default function useRecorder() {
 	const [recorderService] = useState(new AudioRecorderService());
@@ -23,15 +24,15 @@ export default function useRecorder() {
 		});
 	};
 
-	const stopRecording = () => {
+	const stopRecording = (): Promise<StopRecording> => {
 		return recorderService.stopRecording(recorder, audioChunks.current).then((audioBlob) =>
-			recorderService.blobToBase64(audioBlob).then((audiobase64) => {
-				setIsPaused(false);
-				audioChunks.current = [];
-				setRecorder(undefined);
-				const type = audioBlob.type;
-				return [audiobase64, type];
-			})
+		{
+			setIsPaused(false);
+			audioChunks.current = [];
+			setRecorder(undefined);
+			const type = audioBlob.type;
+			return [audioBlob, type];
+		}
 		);
 	};
 
