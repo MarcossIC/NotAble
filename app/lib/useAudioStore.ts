@@ -1,19 +1,20 @@
 import { create, type StateCreator } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
+import type { SetFunction } from '../models/types';
+import type { StateInitializer, ZustandSetter } from '../models/zustandTypes';
 
 interface AudioStore {
 	audioString: string;
 	audioType: string;
 
-	setAudioString: (updated: string) => void;
-	setAudioType: (updated: string) => void;
+	setAudioString: SetFunction<string>;
+	setAudioType: SetFunction<string>;
 }
-const stateInit = (store: any, persistence: any) =>
-	devtools(persist(store, persistence)) as StateCreator<AudioStore, [], [['zustand/persist', string]]>;
+const stateInit: StateInitializer<AudioStore> = (store, persistence) => devtools(persist(store, persistence)) as StateCreator<AudioStore>;
 
 const useAudioStore = create<AudioStore>()(
 	stateInit(
-		(set: any, _get: any) => ({
+		(set: ZustandSetter<AudioStore>) => ({
 			audioString: '',
 			audioType: '',
 			setAudioString: (updated: string) => set({ audioString: updated }),
