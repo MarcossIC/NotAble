@@ -6,7 +6,7 @@ import useToggle from '../lib/useTogle';
 import useClickOutside from '../lib/useClickOutside';
 import { useRef } from 'react';
 
-export default function SignUpButton() {
+export default function SignInButton() {
 	const [open, togle] = useToggle(false);
 	const menuRef = useRef<any>();
 	const openRef = useRef<any>();
