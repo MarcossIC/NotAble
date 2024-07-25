@@ -1,6 +1,6 @@
-import { useCallback, useEffect, type RefObject } from "react";
+import { useCallback, useEffect, type RefObject } from 'react';
 
-export default function useGotoBottom(container: RefObject<HTMLDivElement>){
+export default function useGotoBottom(container: RefObject<HTMLDivElement>) {
 	const scrollToBottom = useCallback(() => {
 		if (container.current) {
 			const { scrollHeight } = container.current;
@@ -11,5 +11,4 @@ export default function useGotoBottom(container: RefObject<HTMLDivElement>){
 	useEffect(() => {
 		scrollToBottom();
 	}, [container.current, container.current?.scrollHeight]);
-
 }

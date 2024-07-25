@@ -8,7 +8,7 @@ export type ChildrenProps = PropsWithChildren;
 export type FallbackProps = { fallback?: ReactNode };
 export type ChildrenAndFallback = ChildrenProps & FallbackProps;
 export type ButtonProps = {
-    isDisabled: boolean;
-    isActive: boolean;
-    onClick: MouseEventHandler | undefined;
+	isDisabled: boolean;
+	isActive: boolean;
+	onClick: MouseEventHandler | undefined;
 };
