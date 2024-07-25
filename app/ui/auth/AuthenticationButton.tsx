@@ -9,7 +9,7 @@ import GoogleSignInButton from './GoogleSignInButton';
 import { useSession } from 'next-auth/react';
 import SignOutButton from './SignOutButton';
 
-export default function Authentication() {
+export default function AuthenticationButton() {
 	const [open, togle] = useToggle(false);
 	const menuRef = useRef<HTMLDivElement>(null);
 	const openRef = useRef<HTMLButtonElement>(null);

@@ -5,6 +5,7 @@ import useRecorder from '@/lib/useRecorder';
 import PauseButton from './PauseButton';
 import RecorderButton from './RecorderButton';
 import { useCallback } from 'react';
+import AIButton from './AIButton';
 
 export default function Recorder() {
 	const { isRecording, isPaused, isNotSupported, startRecording, stopRecording, pauseAction } = useRecorder();
@@ -23,7 +24,8 @@ export default function Recorder() {
 	}, [isRecording, isPaused, isNotSupported]);
 
 	return (
-		<div className='w-[140px] h-fit mx-auto pb-2 flex justify-center items-center relative'>
+		<div className='w-[240px] h-fit mx-auto pb-2 flex justify-center items-center relative'>
+			<AIButton />
 			<RecorderButton
 				onClick={handleRecordingAction}
 				isDisabled={isNotSupported}
