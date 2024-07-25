@@ -20,7 +20,7 @@ const useAudioStore = create<AudioStore>()((set: ZustandSetter<AudioStore>) => (
 	audioType: '',
 	textAudio: '',
 	loading: false,
-	setLoading: (updated)=> set({loading: updated}),
+	setLoading: (updated) => set({ loading: updated }),
 	setAudio: (updated: Blob | null) => set({ audio: updated }),
 	setAudioType: (updated: string) => set({ audioType: updated }),
 	setTextAudio: (updated: string) => set({ textAudio: updated }),

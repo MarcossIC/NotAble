@@ -8,7 +8,7 @@ export default function useTranscriptAudio() {
 			formData.append('audioType', audioBlob.type);
 			formData.append('userId', id);
 
-			const response = await fetch('/api/transcript/speechmatics', {
+			const response = await fetch('/api/transcript', {
 				method: 'POST',
 				body: formData,
 			});

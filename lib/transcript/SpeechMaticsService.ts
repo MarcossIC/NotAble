@@ -3,10 +3,10 @@
 import { Speechmatics } from 'speechmatics';
 
 const REGEX = /audio\/(\w+)(?:;codecs=\w+)?/;
+const apiKey = process.env.SPEECHMATICS_API_KEY!;
 
 export default async function transcribe(audio: Blob | File, type: string) {
-	const apiKey = process.env.SPEECHMATICS_API_KEY;
-	const client = new Speechmatics({ apiKey: apiKey! });
+	const client = new Speechmatics({ apiKey: apiKey });
 
 	const match = REGEX.exec(type);
 	const ext = match ? match[1] : '';

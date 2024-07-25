@@ -1,4 +1,4 @@
-import transcribe from '@/lib/SpeechMaticsService';
+import transcribe from '@/lib/transcript/SpeechMaticsService';
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 import type { NoteDB } from '@/app/models/notesTypes';
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 	const audio = formData.get('audio') as Blob | null;
 	const audioType = formData.get('audioType') as string | null;
 	if (!audio || !audioType) {
-		return NextResponse.json({ error: 'Audio o tipo de audio no proporcionado' }, { status: 400 });
+		return NextResponse.json({ error: 'Audio or AudioType not found' }, { status: 400 });
 	}
 
 	const transcriptText = await transcribe(audio!, audioType!);
