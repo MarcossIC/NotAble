@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import type { SetFunction } from '../app/models/types';
-import type { ZustandSetter } from '../app/models/zustandTypes';
+import type { SetFunction } from '@/app/models/types';
+import type { ZustandSetter } from '@/app/models/zustandTypes';
 
 interface AudioStore {
 	audio: Blob | null;

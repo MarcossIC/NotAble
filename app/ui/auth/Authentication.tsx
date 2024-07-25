@@ -1,8 +1,8 @@
 'use client';
 
 import css from './auth.module.css';
-import useToggle from '../../../lib/useTogle';
-import useClickOutside from '../../../lib/useClickOutside';
+import useToggle from '@/lib/useTogle';
+import useClickOutside from '@/lib/useClickOutside';
 import { useRef } from 'react';
 import GithubSignInButton from './GithubSignInButton';
 import GoogleSignInButton from './GoogleSignInButton';

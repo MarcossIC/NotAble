@@ -2,7 +2,7 @@
 
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import useAudioStore from '../../lib/useAudioStore';
+import useAudioStore from '@/lib/store/useAudioStore';
 import { useSession } from 'next-auth/react';
 import useTranscriptAudio from '@/lib/useTranscriptAudio';
 import { useEffect, useState } from 'react';

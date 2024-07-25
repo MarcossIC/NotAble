@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { ChildrenProps } from '../models/types';
+import type { ChildrenProps } from '@/app/models/types';
 
 interface ShowProps extends ChildrenProps {
 	when: boolean;

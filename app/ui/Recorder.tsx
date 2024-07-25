@@ -1,6 +1,6 @@
 'use client';
 
-import useAudioStore from '@/lib/useAudioStore';
+import useAudioStore from '@/lib/store/useAudioStore';
 import useRecorder from '@/lib/useRecorder';
 import css from './recorder.module.css';
 

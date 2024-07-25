@@ -1,8 +1,8 @@
-import useAudioStore from '@/lib/useAudioStore';
+import useAudioStore from '@/lib/store/useAudioStore';
 import { useEffect, useState } from 'react';
 import type { Note } from '@/app/models/notesTypes';
 import Image from 'next/image';
-import NoteArea from './NoteArea';
+import NoteArea from '@/app/ui/notes/NoteArea';
 
 type NotesListProps = {
 	id: string;

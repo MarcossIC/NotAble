@@ -1,5 +1,3 @@
-'use client';
-
 import Recorder from './ui/Recorder';
 import AudioMediaPlayer from './ui/AudioMediaPlayer';
 import NotesPad from './ui/notes/NotesPad';

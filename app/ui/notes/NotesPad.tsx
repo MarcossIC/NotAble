@@ -1,9 +1,9 @@
 import { useSession } from 'next-auth/react';
-import NotesList from './NotesList';
-import NoteLoader from './NoteLoader';
+import NotesList from '@/app/ui/notes/NotesList';
+import NoteLoader from '@/app/ui/notes/NoteLoader';
 import css from './notes.module.css';
-import Show from '../Show';
-import useAudioStore from '@/lib/useAudioStore';
+import Show from '@/app/ui/Show';
+import useAudioStore from '@/lib/store/useAudioStore';
 import { useRef } from 'react';
 import useGotoBottom from '@/lib/useGotoBottom';
 
