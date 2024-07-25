@@ -1,5 +1,5 @@
-import Recorder from './ui/Recorder';
-import AudioMediaPlayer from './ui/AudioMediaPlayer';
+import Recorder from './ui/recorder/Recorder';
+import AudioMediaPlayer from './ui/recorder/AudioMediaPlayer';
 import NotesPad from './ui/notes/NotesPad';
 import Authentication from './ui/auth/Authentication';
 

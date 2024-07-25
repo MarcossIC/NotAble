@@ -1,3 +1,5 @@
+'use client';
+
 import { useSession } from 'next-auth/react';
 import NotesList from '@/app/ui/notes/NotesList';
 import NoteLoader from '@/app/ui/notes/NoteLoader';
