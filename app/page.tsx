@@ -2,7 +2,7 @@
 
 import Recorder from './ui/Recorder';
 import AudioMediaPlayer from './ui/AudioMediaPlayer';
-import NotesPad from './ui/NotesPad';
+import NotesPad from './ui/notes/NotesPad';
 import Authentication from './ui/auth/Authentication';
 
 export default function App() {

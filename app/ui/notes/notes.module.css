@@ -1,0 +1,39 @@
+.notesContainer {
+	margin-bottom: auto;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 70dvh;
+	max-width: 85%;
+	min-width: 624px;
+	margin-block-start: 3dvh;
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
+
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar-thumb {
+		background: transparent;
+	}
+}
+
+.textareaNote {
+	resize: none;
+	color: var(--notable-white);
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	opacity: 1;
+	border: 0;
+	outline: none;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	form-sizing: content;
+	cursor: default;
+
+	&:is(:hover, :focus, :active) {
+		border: 0;
+		outline: none;
+	}
+}

@@ -6,13 +6,14 @@ import css from './recorder.module.css';
 
 export default function Recorder() {
 	const { isRecording, isPaused, isNotSupported, startRecording, stopRecording, pauseAction } = useRecorder();
-	const { setAudio, setAudioType } = useAudioStore();
+	const { setAudio, setAudioType, setLoading } = useAudioStore();
 
 	const recordingAction = () => {
 		if (!isRecording) {
 			startRecording();
 		} else {
 			stopRecording().then(([audioblob, type]) => {
+				setLoading(true);
 				setAudio(audioblob);
 				setAudioType(type);
 			});

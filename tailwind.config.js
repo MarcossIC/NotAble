@@ -9,6 +9,16 @@ module.exports = {
 						100: 'var(--notable-red-100)',
 						200: 'var(--notable-red-200)',
 					},
+					primary: {
+						50: 'var(--notable-primary-50)',
+						100: 'var(--notable-primary-100)',
+						150: 'var(--notable-primary-150)',
+						200: 'var(--notable-primary-200)',
+						300: 'var(--notable-primary-300)',
+						400: 'var(--notable-primary-400)',
+						500: 'var(--notable-primary-500)',
+						600: 'var(--notable-primary-600)',
+					}
 				},
 			},
 			backgroundImage: {
