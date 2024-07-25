@@ -2,7 +2,7 @@ import useAudioStore from '@/lib/useAudioStore';
 import { useEffect, useState } from 'react';
 import type { Note } from '@/app/models/notesTypes';
 import Image from 'next/image';
-import css from './notes.module.css';
+import NoteArea from './NoteArea';
 
 type NotesListProps = {
 	id: string;
@@ -39,12 +39,9 @@ export default function NotesList({ id, profile }: NotesListProps) {
 					height={32}
 					className='size-8 rounded-full object-cover object-center'
 				/>
-				<div className='bg-notable-primary-150 py-2 px-3 rounded-xl flex flex-col gap-y-2 w-full h-auto'>
+				<div className='bg-notable-primary-150 pt-3 pb-5 pl-4 pr-5 rounded-xl flex flex-col gap-y-2 w-full h-auto'>
 					<div className='text-nowrap whitespace-pre font-medium text-lg'>{note.title}</div>
-					<textarea
-						className={css.textareaNote}
-						value={note.note}
-						readOnly></textarea>
+					<NoteArea value={note.note} />
 				</div>
 			</div>
 		);

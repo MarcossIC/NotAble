@@ -20,10 +20,11 @@
 
 .textareaNote {
 	resize: none;
+	background-color: transparent;
+	overflow: hidden;
 	color: var(--notable-white);
 	width: 100%;
 	height: 100%;
-	background-color: transparent;
 	opacity: 1;
 	border: 0;
 	outline: none;
