@@ -4,9 +4,9 @@ import { NextResponse } from 'next/server';
 
 export const maxDuration = 30;
 
-export async function POST(req: Request) {
-	const body = await req.json();
-	const ID = body['id'] as string;
+export async function GET(req: Request) {
+	const ID = req.headers.get("uuid");
+	
 	if (!ID) {
 		return NextResponse.json({ message: 'ID is required' }, { status: 400 });
 	}

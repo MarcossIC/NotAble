@@ -9,8 +9,7 @@ type NotesListProps = {
 	profile: string;
 };
 
-const getNotes = async (id: string) =>
-	fetch(`/api/notes`, { method: 'POST', priority: 'high', body: JSON.stringify({ id }) }).then((res) => res.json());
+const getNotes = async (id: string) => fetch(`/api/notes`, { method: 'GET', priority: 'high', headers: { uuid: id } }).then((res) => res.json());
 
 export default function NotesList({ id, profile }: NotesListProps) {
 	const { textAudio, setLoading } = useAudioStore();
