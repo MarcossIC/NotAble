@@ -4,13 +4,20 @@ import NoteLoader from './NoteLoader';
 import css from './notes.module.css';
 import Show from '../Show';
 import useAudioStore from '@/lib/useAudioStore';
+import { useRef } from 'react';
+import useGotoBottom from '@/lib/useGotoBottom';
 
 export default function NotesPad() {
 	const { data: session } = useSession();
 	const { loading } = useAudioStore();
+	const gotoContainer = useRef<HTMLDivElement>(null);
+	useGotoBottom(gotoContainer);
+
 	if (session) {
 		return (
-			<div className={css.notesContainer}>
+			<div
+				className={css.notesContainer}
+				ref={gotoContainer}>
 				<NotesList
 					profile={session.user.image || ''}
 					id={session.user.id || ''}

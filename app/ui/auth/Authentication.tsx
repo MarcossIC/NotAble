@@ -11,8 +11,8 @@ import SignOutButton from './SignOutButton';
 
 export default function Authentication() {
 	const [open, togle] = useToggle(false);
-	const menuRef = useRef<any>();
-	const openRef = useRef<any>();
+	const menuRef = useRef<HTMLDivElement>(null);
+	const openRef = useRef<HTMLButtonElement>(null);
 	const handleClick = () => {
 		togle();
 	};

@@ -18,9 +18,8 @@ export default async function transcribe(audio: Blob | File, type: string) {
 			},
 			'text'
 		)) as string;
-	} catch (err: any) {
+	} catch (err: unknown) {
 		console.error('Error creating transcription job:', err);
-		console.error('Error response body:', err.error);
 		return '';
 	}
 }
