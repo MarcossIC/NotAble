@@ -1,12 +1,17 @@
 import { useSession } from 'next-auth/react';
 import NotesList from './NotesList';
+import NoteLoader from './NoteLoader';
 
 export default function NotesPad() {
 	const { data: session } = useSession();
 	if (session) {
 		return (
 			<div className='mb-auto ps-8 pt-4'>
-				<NotesList id={session.user.id || ''} />
+				<NotesList
+					profile={session.user.image || ''}
+					id={session.user.id || ''}
+				/>
+				<NoteLoader />
 			</div>
 		);
 	}

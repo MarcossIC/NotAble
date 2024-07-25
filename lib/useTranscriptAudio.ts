@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 export default function useTranscriptAudio() {
 	const transcript = async (audioBlob: Blob, id: string) => {
@@ -18,7 +18,7 @@ export default function useTranscriptAudio() {
 				return res.transcriptText;
 			} else {
 				console.error('Failed to upload audio');
-				return "";
+				return '';
 			}
 		}
 	};

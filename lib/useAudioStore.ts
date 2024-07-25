@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { SetFunction } from '../app/models/types';
-import type {  ZustandSetter } from '../app/models/zustandTypes';
+import type { ZustandSetter } from '../app/models/zustandTypes';
 
 interface AudioStore {
 	audio: Blob | null;
@@ -13,17 +13,13 @@ interface AudioStore {
 }
 //const stateInit: StateInitializer<AudioStore> = (store, persistence) => devtools(persist(store, persistence)) as StateCreator<AudioStore>;
 
-const useAudioStore = create<AudioStore>()(
-	
-		(set: ZustandSetter<AudioStore>) => ({
-			audio: null,
-			audioType: '',
-			textAudio: "",
-			setAudio: (updated: Blob | null) => set({ audio: updated }),
-			setAudioType: (updated: string) => set({ audioType: updated }),
-			setTextAudio: (updated: string) => set({ textAudio: updated }),
-		}
-	)
-);
+const useAudioStore = create<AudioStore>()((set: ZustandSetter<AudioStore>) => ({
+	audio: null,
+	audioType: '',
+	textAudio: '',
+	setAudio: (updated: Blob | null) => set({ audio: updated }),
+	setAudioType: (updated: string) => set({ audioType: updated }),
+	setTextAudio: (updated: string) => set({ textAudio: updated }),
+}));
 
 export default useAudioStore;

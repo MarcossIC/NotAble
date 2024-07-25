@@ -25,15 +25,13 @@ export default function useRecorder() {
 	};
 
 	const stopRecording = (): Promise<StopRecording> => {
-		return recorderService.stopRecording(recorder, audioChunks.current).then((audioBlob) =>
-		{
+		return recorderService.stopRecording(recorder, audioChunks.current).then((audioBlob) => {
 			setIsPaused(false);
 			audioChunks.current = [];
 			setRecorder(undefined);
 			const type = audioBlob.type;
 			return [audioBlob, type];
-		}
-		);
+		});
 	};
 
 	const pauseAction = () => {

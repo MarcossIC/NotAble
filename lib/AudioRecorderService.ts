@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 class AudioRecorderService {
 	public isRecording(mediaRecorder: MediaRecorder | undefined) {

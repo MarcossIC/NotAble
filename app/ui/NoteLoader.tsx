@@ -1,88 +1,70 @@
 export default function NoteLoader() {
 	return (
 		<svg
-			role='img'
-			width='390'
-			height='160'
 			aria-labelledby='loading-aria'
-			viewBox='0 0 390 160'
+			width='624'
+			height='173'
+			viewBox='0 0 624 173'
+			fill='none'
+			xmlns='http://www.w3.org/2000/svg'
 			preserveAspectRatio='none'>
 			<title id='loading-aria'>Loading...</title>
 			<rect
-				x='0'
-				y='0'
-				width='100%'
-				height='100%'
-				clip-path='url(#clip-path)'
-				style={'fill: url("#fill");' as any}></rect>
-			<defs>
-				<clipPath id='clip-path'>
-					<rect
-						x='40'
-						y='45'
-						rx='3'
-						ry='3'
-						width='178'
-						height='10'
-					/>
-					<circle
-						cx='20'
-						cy='17'
-						r='15'
-					/>
-					<rect
-						x='40'
-						y='25'
-						rx='0'
-						ry='0'
-						width='300'
-						height='10'
-					/>
-					<rect
-						x='40'
-						y='5'
-						rx='3'
-						ry='3'
-						width='300'
-						height='10'
-					/>
-				</clipPath>
-				<linearGradient id='fill'>
-					<stop
-						offset='0.599964'
-						stop-color='#f3f3f3'
-						stop-opacity='1'>
-						<animate
-							attributeName='offset'
-							values='-2; -2; 1'
-							keyTimes='0; 0.25; 1'
-							dur='2s'
-							repeatCount='indefinite'></animate>
-					</stop>
-					<stop
-						offset='1.59996'
-						stop-color='#ecebeb'
-						stop-opacity='1'>
-						<animate
-							attributeName='offset'
-							values='-1; -1; 2'
-							keyTimes='0; 0.25; 1'
-							dur='2s'
-							repeatCount='indefinite'></animate>
-					</stop>
-					<stop
-						offset='2.59996'
-						stop-color='#f3f3f3'
-						stop-opacity='1'>
-						<animate
-							attributeName='offset'
-							values='0; 0; 3'
-							keyTimes='0; 0.25; 1'
-							dur='2s'
-							repeatCount='indefinite'></animate>
-					</stop>
-				</linearGradient>
-			</defs>
+				x='47'
+				width='577'
+				height='173'
+				rx='12'
+				fill='#1D1D1D'
+			/>
+			<ellipse
+				cx='19.5'
+				cy='19'
+				rx='19.5'
+				ry='19'
+				fill='#252525'
+				id='profileLoader'
+				className='animate-pulse duration-300'
+			/>
+			<rect
+				x='65'
+				y='13'
+				width='277'
+				height='21'
+				rx='10.5'
+				fill='#252525'
+				id='titleNoteLoader'
+				className='animate-pulse duration-300'
+			/>
+			<rect
+				x='65'
+				y='55'
+				width='468'
+				height='16'
+				rx='8'
+				fill='#252525'
+				id='firstLineText'
+				className='animate-pulse duration-300'
+			/>
+			<rect
+				x='65'
+				y='83'
+				width='436'
+				height='16'
+				rx='8'
+				fill='#252525'
+				id='secondLineText'
+				className='animate-pulse duration-300'
+			/>
+			<rect
+				x='65'
+				y='111'
+				width='343'
+				height='16'
+				rx='8'
+				fill='#252525'
+				id='thirdLineText'
+				className='animate-pulse duration-300'
+			/>
 		</svg>
 	);
 }
