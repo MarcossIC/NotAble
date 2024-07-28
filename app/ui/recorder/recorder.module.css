@@ -78,7 +78,7 @@
 		cursor: default;
 	}
 
-	&:hover {
+	&:not(:disabled):hover {
 		background: var(--notable-primary-150);
 		& svg {
 			color: var(--notablev1-primary-500);

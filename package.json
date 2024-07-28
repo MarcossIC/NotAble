@@ -24,6 +24,8 @@
 	},
 	"dependencies": {
 		"@ai-sdk/openai": "latest",
+		"@ai-sdk/provider": "^0.0.14",
+		"@ai-sdk/provider-utils": "^1.0.5",
 		"@ai-sdk/react": "latest",
 		"@vercel/postgres": "^0.9.0",
 		"ai": "3.2.27",

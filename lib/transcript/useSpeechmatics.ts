@@ -5,7 +5,7 @@ import { Speechmatics } from 'speechmatics';
 const REGEX = /audio\/(\w+)(?:;codecs=\w+)?/;
 const apiKey = process.env.SPEECHMATICS_API_KEY!;
 
-export default async function transcribe(audio: Blob | File, type: string) {
+export default async function useSpeechmatics(audio: Blob | File, type: string) {
 	const client = new Speechmatics({ apiKey: apiKey });
 
 	const match = REGEX.exec(type);

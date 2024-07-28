@@ -1,12 +1,12 @@
-import type { ChildrenProps } from '@/app/models/types';
+import type { ChildrenAndFallback } from '@/app/models/types';
 import { useSession } from 'next-auth/react';
 
-export default function Authenticated({ children }: ChildrenProps) {
+export default function Authenticated({ children, fallback }: ChildrenAndFallback) {
 	const { status } = useSession();
 
 	if (status === 'authenticated') {
 		return children;
 	}
 
-	return undefined;
+	return fallback;
 }

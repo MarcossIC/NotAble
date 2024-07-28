@@ -1,8 +1,8 @@
 import useAudioStore from '@/lib/store/useAudioStore';
-import { useEffect, useState } from 'react';
-import type { Note } from '@/app/models/notesTypes';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import NoteArea from '@/app/ui/notes/NoteArea';
+import useNoteStore from '@/lib/store/useNoteStore';
 
 type NotesListProps = {
 	id: string;
@@ -13,7 +13,7 @@ const getNotes = async (id: string) => fetch(`/api/notes`, { method: 'GET', prio
 
 export default function NotesList({ id, profile }: NotesListProps) {
 	const { textAudio, setLoading } = useAudioStore();
-	const [notes, setNotes] = useState<Note[]>([]);
+	const { notes, setNotes } = useNoteStore();
 	useEffect(() => {
 		getNotes(id)
 			.then((res) => {

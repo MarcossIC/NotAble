@@ -6,7 +6,7 @@
 			"error",
 			{
 				"vars": "local",
-				"varsIgnorePattern": "[iI]gnored",
+				"varsIgnorePattern": "^_",
 				"args": "none",
 				"argsIgnorePattern": "[iI]gnored",
 				"caughtErrors": "all",
@@ -14,7 +14,9 @@
 				"ignoreRestSiblings": true
 			}
 		],
-		"no-empty-pattern": ["error", { "allowObjectPatternsAsParameters": true }],
-		"react-hooks/rules-of-hooks": "off"
+		"no-empty-pattern": ["error", { "allowObjectPatternsAsParameters": false }],
+		"react-hooks/rules-of-hooks": "off",
+		"react-hooks/exhaustive-deps": "off",
+		"no-undef": ["warn", { "typeof": false }]
 	}
 }

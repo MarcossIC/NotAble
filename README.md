@@ -22,5 +22,5 @@ In order to deploy a local version of the project you must:
 
 - Download the project from github
 - Run `npm install`, `pnpm install` or `bun install` at the root of the project
-- Create `.env` file and add your KEY's
+- Create `.env` file and add your KEY's (See example.env, required KEY)
 - Run `[npm, bun or pnpm] run dev` for a dev server. Navigate to `http://localhost:3000/`

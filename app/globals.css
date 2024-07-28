@@ -123,3 +123,14 @@ pre {
 		}
 	}
 }
+
+ul {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.25rem;
+	padding-inline-start: 1rem;
+
+	& li {
+		list-style-type: disc;
+	}
+}
