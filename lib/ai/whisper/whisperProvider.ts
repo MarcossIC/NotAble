@@ -2,7 +2,6 @@ import { generateId, withoutTrailingSlash } from '@ai-sdk/provider-utils';
 import { WhisperChatLanguageModel } from './whisperChatLanguageModel';
 import type { WhisperChatModelId, WhisperChatSettings } from './whisperChatSetting';
 
-
 export interface WhisperProvider {
 	(modelId: WhisperChatModelId, settings?: WhisperChatSettings): WhisperChatLanguageModel;
 	chat(modelId: WhisperChatModelId, settings?: WhisperChatSettings): WhisperChatLanguageModel;
@@ -19,23 +18,19 @@ export interface WhisperProviderSettings {
 
 // provider factory function
 export function createWhisper(options: WhisperProviderSettings = {}): WhisperProvider {
-	const baseURL =
-    withoutTrailingSlash(options.baseURL ?? options.baseURL) ?? "";
+	const baseURL = withoutTrailingSlash(options.baseURL ?? options.baseURL) ?? '';
 
 	const getHeaders = () => ({
 		Authorization: `Bearer ${options.apiKey}`,
 		...options.headers,
-	  });
+	});
 
-	  const createTranscriptAudioModel = (
-		modelId: WhisperChatModelId,
-		settings: WhisperChatSettings = {},
-	  ) =>
+	const createTranscriptAudioModel = (modelId: WhisperChatModelId, settings: WhisperChatSettings = {}) =>
 		new WhisperChatLanguageModel(modelId, settings, {
-		  provider: "openai.audio",
-		  baseURL: `${baseURL}/audio/transcriptions`,
-		  headers: getHeaders,
-		  generateId: options.generateId ?? generateId,
+			provider: 'openai.audio',
+			baseURL: `${baseURL}/audio/transcriptions`,
+			headers: getHeaders,
+			generateId: options.generateId ?? generateId,
 		});
 
 	const provider = function (modelId: WhisperChatModelId, settings?: WhisperChatSettings) {

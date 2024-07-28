@@ -1,12 +1,10 @@
-
-import { Position, type ResumePreferenceStore } from "@/app/models/storeTypes";
-import type { ZustandSetter } from "@/app/models/zustandTypes";
-import { create } from "zustand";
-
+import { Position, type ResumePreferenceStore } from '@/app/models/storeTypes';
+import type { ZustandSetter } from '@/app/models/zustandTypes';
+import { create } from 'zustand';
 
 const useResumeStore = create<ResumePreferenceStore>()((set: ZustandSetter<ResumePreferenceStore>) => ({
 	open: false,
-	resume: "",
+	resume: '',
 	position: Position._RIGHT_SIDE,
 	setOpen: (open) => set({ open }),
 	setResume: (resume) => set({ resume }),

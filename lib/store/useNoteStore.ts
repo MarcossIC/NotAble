@@ -1,6 +1,6 @@
-import type { NotesStore } from "@/app/models/storeTypes";
-import type { ZustandSetter } from "@/app/models/zustandTypes";
-import { create } from "zustand";
+import type { NotesStore } from '@/app/models/storeTypes';
+import type { ZustandSetter } from '@/app/models/zustandTypes';
+import { create } from 'zustand';
 
 const useNoteStore = create<NotesStore>()((set: ZustandSetter<NotesStore>) => ({
 	notes: [],

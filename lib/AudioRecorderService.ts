@@ -1,6 +1,6 @@
 'use client';
 
-import { getSupportedMimetype } from "./supportedAudioTypes";
+import { getSupportedMimetype } from './supportedAudioTypes';
 
 class AudioRecorderService {
 	public isRecording(mediaRecorder: MediaRecorder | undefined) {
@@ -10,8 +10,6 @@ class AudioRecorderService {
 	public isPaused(mediaRecorder: MediaRecorder | undefined) {
 		return !!mediaRecorder && mediaRecorder.state === 'paused';
 	}
-
-
 
 	public async startRecording() {
 		try {
