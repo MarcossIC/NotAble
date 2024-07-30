@@ -22,5 +22,5 @@ export async function POST(req: Request) {
 	});
 
 	// Respond with the stream
-	return NextResponse.json({ text: result.text }, { status: 200 });
+	return NextResponse.json({ text: result?.text }, { status: 200 });
 }
