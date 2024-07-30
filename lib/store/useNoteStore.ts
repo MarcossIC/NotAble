@@ -5,6 +5,10 @@ import { create } from 'zustand';
 const useNoteStore = create<NotesStore>()((set: ZustandSetter<NotesStore>) => ({
 	notes: [],
 	notesCount: 0,
+	openedNote: {id: "",x: 0,y:0},
+	buttonRef: null,
+	setButtonRef: (updated) => set({ buttonRef: updated }),
+	setOpenedNote: (updated)=> set({ openedNote: updated }),
 	setNotes: (updated) => set({ notes: updated, notesCount: updated.length }),
 }));
 

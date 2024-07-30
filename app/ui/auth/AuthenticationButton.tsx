@@ -13,9 +13,6 @@ export default function AuthenticationButton() {
 	const [open, togle] = useToggle(false);
 	const menuRef = useRef<HTMLDivElement>(null);
 	const openRef = useRef<HTMLButtonElement>(null);
-	const handleClick = () => {
-		togle();
-	};
 	const clickOutSide = () => {
 		if (open) togle();
 	};
@@ -30,7 +27,7 @@ export default function AuthenticationButton() {
 			<button
 				ref={openRef}
 				className={`${css.authButton} ${css.signIn}`}
-				onClick={handleClick}>
+				onClick={togle}>
 				<svg
 					height='24px'
 					width='24px'

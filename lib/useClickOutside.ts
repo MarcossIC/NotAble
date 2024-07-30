@@ -1,17 +1,25 @@
 import { useEffect, type RefObject } from 'react';
 
-const useClickOutside = (ref: RefObject<HTMLElement>, callback: () => void, ignoreRef?: RefObject<HTMLElement>) => {
+function isTouchDevice() {
+	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  }
+
+const useClickOutside = (ref: RefObject<HTMLElement>, handler: () => void, ignoreRef?: RefObject<HTMLElement>) => {
 	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
+		const isTouchAvalaible = isTouchDevice();
+		const listener = (event: MouseEvent | TouchEvent) => {
+			event.stopPropagation();
 			const element = event.target as Node;
-			if (ref.current && !ref.current.contains(element) && (!ignoreRef || !ignoreRef.current || !ignoreRef.current.contains(element))) callback();
+			if (ref.current && !ref.current.contains(element) && (!ignoreRef || !ignoreRef.current || !ignoreRef.current.contains(element))) handler();
 		};
 
-		document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener('mousedown', listener);
+		if(isTouchAvalaible) document.addEventListener('touchstart', listener);
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener('mousedown', listener);
+			if(isTouchAvalaible) document.removeEventListener('touchstart', listener);
 		};
-	}, [ref, ignoreRef, callback]);
+	}, [ref, ignoreRef, handler]);
 };
 
 export default useClickOutside;

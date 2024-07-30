@@ -7,10 +7,11 @@ export type StopRecording = [Blob, string];
 export type ChildrenProps = PropsWithChildren;
 export type FallbackProps = { fallback?: ReactNode | undefined };
 export type ChildrenAndFallback = ChildrenProps & FallbackProps;
-export type ButtonProps = {
+
+export type ButtonOnClickProp = {onClick?: MouseEventHandler};
+export type ButtonProps = ButtonOnClickProp & {
 	isDisabled?: boolean;
 	isActive?: boolean;
-	onClick?: MouseEventHandler | undefined;
 };
 
 export enum TranscribeService {

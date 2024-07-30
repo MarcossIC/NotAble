@@ -1,5 +1,6 @@
 import type { SetFunction } from '@/app/models/types';
 import type { Note } from '@/app/models/notesTypes';
+import type { RefObject } from 'react';
 
 export enum Position {
 	_CENTER = 1,
@@ -16,8 +17,18 @@ export interface ResumePreferenceStore {
 	setPosition: SetFunction<Position>;
 }
 
+interface OpenNote {
+	id: string;
+	x: number;
+	y: number;
+}
+
 export interface NotesStore {
 	notes: Note[];
 	notesCount: number;
+	openedNote: OpenNote;
+	buttonRef: RefObject<HTMLButtonElement> | null;
+	setButtonRef: SetFunction<RefObject<HTMLButtonElement>>;
+	setOpenedNote: SetFunction<OpenNote>;
 	setNotes: SetFunction<Note[]>;
 }

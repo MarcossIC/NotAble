@@ -3,6 +3,7 @@ import AudioMediaPlayer from './ui/recorder/AudioMediaPlayer';
 import NotesPad from './ui/notes/NotesPad';
 import AuthenticationButton from './ui/auth/AuthenticationButton';
 import NoteResume from './ui/resume/NoteResume';
+import EditNoteMenu from './ui/EditNoteMenu';
 
 export default function App() {
 	return (
@@ -10,6 +11,7 @@ export default function App() {
 			<AuthenticationButton />
 			<NotesPad />
 			<NoteResume />
+			<EditNoteMenu />
 
 			<div>
 				<Recorder />
