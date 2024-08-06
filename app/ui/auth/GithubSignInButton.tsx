@@ -10,6 +10,7 @@ export default function GithubSignInButton() {
 	return (
 		<button
 			onClick={handleClick}
+			aria-label='Sign in with Github'
 			className='w-full flex items-center font-semibold justify-center h-[50%] px-6 text-base rounded-b-2xl transition-colors duration-300 bg-white  text-black  hover:bg-slate-200 overflow-hidden'>
 			<Image
 				src={githubLogo}

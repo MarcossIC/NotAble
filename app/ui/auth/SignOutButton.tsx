@@ -6,7 +6,8 @@ export default function SignOutButton() {
 	return (
 		<button
 			className={`${css.authButton} ${css.logOut}`}
-			onClick={() => signOut({ redirect: false })}>
+			onClick={() => signOut({ redirect: false })}
+			aria-label='Sign out button'>
 			<LogoutIcon />
 		</button>
 	);

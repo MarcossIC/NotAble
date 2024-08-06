@@ -21,10 +21,14 @@ const SignInButton = () => {
 			<button
 				ref={openRef}
 				className={`${css.authButton} ${css.signIn}`}
-				onClick={togle}>
+				onClick={togle}
+				aria-label='Sign in button'>
 				<SignIcon />
 			</button>
 			<div
+				aria-label='Sign in options'
+				aria-live='off'
+				aria-roledescription='Sign in drop down menu'
 				className={`${css.menu} ${open ? css.open : 'close'}`}
 				ref={menuRef}>
 				<GoogleSignInButton />
