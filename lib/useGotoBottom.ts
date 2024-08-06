@@ -1,14 +1,31 @@
-import { useCallback, useEffect, type RefObject } from 'react';
+import { useCallback, useEffect, useRef, type RefObject } from 'react';
 
-export default function useGotoBottom(container: RefObject<HTMLDivElement>) {
+type UseGotoBottomProps = {
+	container: RefObject<HTMLDivElement>;
+	disable: boolean;
+	toggleDisable?: () => void;
+	activeForLoading?: boolean;
+  };
+  
+  export default function useGotoBottom({
+	container,
+	disable,
+	toggleDisable,
+	activeForLoading = false
+  }: UseGotoBottomProps) {
+	const lastHeight = useRef(0);
 	const scrollToBottom = useCallback(() => {
-		if (container.current) {
+		if (container.current && !disable) {
 			const { scrollHeight } = container.current;
-			container.current.scrollTop = scrollHeight;
+			if(scrollHeight > lastHeight.current){
+				lastHeight.current = scrollHeight;
+				container.current.scrollTop = scrollHeight;
+			}
 		}
-	}, [container]);
+		if(disable && toggleDisable) toggleDisable();
+	}, [container, disable,lastHeight.current]);
 
 	useEffect(() => {
 		scrollToBottom();
-	}, [container.current, container.current?.scrollHeight]);
+	}, [container.current, container.current?.scrollHeight,activeForLoading]);
 }

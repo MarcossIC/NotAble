@@ -8,7 +8,7 @@ export type ChildrenProps = PropsWithChildren;
 export type FallbackProps = { fallback?: ReactNode | undefined };
 export type ChildrenAndFallback = ChildrenProps & FallbackProps;
 
-export type ButtonOnClickProp = {onClick?: MouseEventHandler};
+export type ButtonOnClickProp = { onClick?: MouseEventHandler };
 export type ButtonProps = ButtonOnClickProp & {
 	isDisabled?: boolean;
 	isActive?: boolean;
