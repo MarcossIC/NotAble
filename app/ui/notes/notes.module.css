@@ -6,8 +6,8 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 	height: 70dvh;
-	max-width: 85%;
-	min-width: 624px;
+	max-width: 79dvw;
+	min-width: 79dvw;
 	margin-block-start: 3dvh;
 	scrollbar-width: thin;
 	scrollbar-color: transparent transparent;
@@ -15,6 +15,13 @@
 	&::-webkit-scrollbar-track,
 	&::-webkit-scrollbar-thumb {
 		background: transparent;
+	}
+
+	@media only screen and (min-width: 780px) {
+		& {
+			max-width: 85%;
+			min-width: 624px;
+		}
 	}
 }
 

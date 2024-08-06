@@ -10,7 +10,7 @@ interface NoteProps {
 
 export default function NoteComponent({ note, profile }: NoteProps) {
 	return (
-		<div className='mb-8 flex gap-x-2 justify-start items-start relative group'>
+		<div className='mb-8 flex gap-x-2 justify-start items-start relative group w-full'>
 			<Image
 				src={profile}
 				alt='User profile'
