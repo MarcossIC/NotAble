@@ -21,9 +21,12 @@ export default function NoteComponent({ note, profile }: NoteProps) {
 			<div className='absolute top-[5.5%] right-[.5%]'>
 				<SettingNoteButton id={note.id} />
 			</div>
-			<div className='bg-notable-primary-150 pt-3 pb-5 pl-4 pr-5 rounded-xl flex flex-col gap-y-2 w-full h-auto'>
+			<div className='bg-notable-primary-150 pt-3 pb-5 px-4 rounded-xl flex flex-col gap-y-2 w-full h-auto'>
 				<div className='text-nowrap whitespace-pre font-medium text-lg'>{note.title}</div>
-				<NoteArea value={note.note} />
+				<NoteArea
+					value={note.note}
+					className='pe-4'
+				/>
 			</div>
 		</div>
 	);

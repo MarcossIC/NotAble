@@ -4,16 +4,17 @@ import useAutoResizeTextarea from '@/lib/useAutoResizeTextarea';
 
 interface NoteAreaProps {
 	value: string;
+	className?: string;
 }
 
-export default function NoteArea({ value }: NoteAreaProps) {
+export default function NoteArea({ value, className = '' }: NoteAreaProps) {
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
 	useAutoResizeTextarea(textareaRef, value);
 
 	return (
 		<textarea
 			ref={textareaRef}
-			className={`${css.textareaNote}`}
+			className={`${css.textareaNote} ${className}`}
 			value={value}
 			readOnly
 		/>
