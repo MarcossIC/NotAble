@@ -19,6 +19,7 @@ module.exports = {
 						500: 'var(--notable-primary-500)',
 						600: 'var(--notable-primary-600)',
 					},
+					white: 'var(--notable-text-white)',
 				},
 			},
 			backgroundImage: {

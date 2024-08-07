@@ -25,7 +25,7 @@ export default function NoteComponent({ note, profile }: NoteProps) {
 				<div className='text-nowrap whitespace-pre font-medium text-lg'>{note.title}</div>
 				<NoteArea
 					value={note.note}
-					className='pe-4'
+					className='pe-[1.1rem]'
 				/>
 			</div>
 		</div>

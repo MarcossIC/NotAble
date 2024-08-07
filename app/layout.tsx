@@ -4,6 +4,8 @@ import './globals.css';
 import NextAuthProvider from './SessionWrapper';
 import Loading from './ui/Loading';
 import AuthLoaded from './ui/auth/AuthLoaded';
+import Sidebar from './ui/sidebar/Sidebar';
+import SidebarOpenButton from './ui/sidebar/SidebarOpenButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,7 +19,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang='en'>
 			<body className={inter.className}>
 				<NextAuthProvider>
-					<AuthLoaded fallback={<Loading />}>{children}</AuthLoaded>
+					<div className='flex w-full h-full flex-1 '>
+						<SidebarOpenButton />
+						<Sidebar />
+						<AuthLoaded fallback={<Loading />}>{children}</AuthLoaded>
+					</div>
 				</NextAuthProvider>
 			</body>
 		</html>
