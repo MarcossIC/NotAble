@@ -21,7 +21,7 @@ module.exports = {
 						600: 'var(--notable-primary-600)',
 					},
 					white: {
-						"DEFAULT": 'var(--notable-text-white)',
+						DEFAULT: 'var(--notable-text-white)',
 						o60: 'var(--notable-text-white-o60)',
 					},
 				},
@@ -52,9 +52,25 @@ module.exports = {
 				'slide-left-right-slow': 'slide-left-right 1s ease-in-out infinite alternate',
 			},
 			boxShadow: {
-				'custom-toast': '0 16px 24px 0px rgba(0, 0, 0, 0.14),  0 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 10px 8px 0px rgba(0, 0, 0, 0.15)',
+				'custom-toast': 'var(--notable-toast-shadow)',
+			},
+			content: {
+				attr: 'attr(data-text)',
 			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		function ({ addVariant, e }) {
+			addVariant('before', ({ modifySelectors, separator }) => {
+				modifySelectors(({ className }) => {
+					return `.${e(`before${separator}${className}`)}::before`;
+				});
+			});
+			addVariant('after', ({ modifySelectors, separator }) => {
+				modifySelectors(({ className }) => {
+					return `.${e(`after${separator}${className}`)}::after`;
+				});
+			});
+		},
+	],
 };

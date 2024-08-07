@@ -25,6 +25,9 @@
 	--notable-red-50: #e24a4a;
 	--notable-red-100: #e03838;
 	--notable-red-200: #df2e2e;
+
+	--notable-scrollbar-bg: rgba(255, 255, 255, 0.12);
+	--notable-toast-shadow: 0 16px 24px 0px rgba(0, 0, 0, 0.14), 0 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 10px 8px 0px rgba(0, 0, 0, 0.15);
 }
 
 html,
@@ -142,7 +145,7 @@ ul {
 
 .scrollbar-style {
 	scrollbar-width: thin;
-	scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+	scrollbar-color: var(--notable-scrollbar-bg) transparent;
 	scrollbar-gutter: stable both-edges;
 
 	&::-webkit-scrollbar,

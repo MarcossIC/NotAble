@@ -11,7 +11,8 @@ export default function EditNoteMenu() {
 		<MenuContainer
 			ref={menuRef}
 			position={position}
-			open={open}>
+			open={open}
+			className='shadow-sm'>
 			<MenuButton onClick={handleRemoveNote}>Remove note</MenuButton>
 			<MenuButton onClick={handleCopy}>Copy note</MenuButton>
 		</MenuContainer>

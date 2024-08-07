@@ -1,0 +1,33 @@
+.sidebarSettingContainer {
+	position: relative;
+	margin-block-start: auto;
+	padding-block: 0.5rem;
+	padding-inline-start: 0.5rem;
+}
+
+.sidebarSettingContainer span.settingText {
+	position: absolute;
+	top: 50%;
+	right: -4.25rem;
+	color: var(--notable-text-white);
+	background-color: var(--notable-primary-200);
+	padding-block: 0.25rem;
+	padding-inline: 0.5rem;
+	font-size: 0.75rem;
+	border-radius: 0.5rem;
+	transform: translate(0, -50%);
+	opacity: 0;
+	display: none;
+	transition: all 200ms ease;
+	z-index: 10;
+
+	&:hover {
+		opacity: 1;
+		display: block;
+	}
+}
+
+.sidebarSettingContainer:has(> button.settingButton:is(:hover, :focus)) span.settingText {
+	opacity: 1;
+	display: block;
+}
