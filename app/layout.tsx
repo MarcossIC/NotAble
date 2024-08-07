@@ -20,9 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			<body className={inter.className}>
 				<NextAuthProvider>
 					<div className='flex w-full h-full flex-1 '>
-						<SidebarOpenButton />
-						<Sidebar />
-						<AuthLoaded fallback={<Loading />}>{children}</AuthLoaded>
+						<AuthLoaded fallback={<Loading />}>
+							<SidebarOpenButton />
+							<Sidebar />
+							{children}
+						</AuthLoaded>
 					</div>
 				</NextAuthProvider>
 			</body>
