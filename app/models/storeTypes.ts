@@ -15,7 +15,6 @@ export interface ResumePreferenceStore {
 	setOpen: SetFunction<boolean>;
 	setResume: SetFunction<string>;
 	setPosition: SetFunction<Position>;
-	
 }
 
 interface OpenNote {
@@ -30,12 +29,12 @@ export interface NotesStore {
 	openedNote: OpenNote;
 	buttonRef: RefObject<HTMLButtonElement> | null;
 	autoScrollDisable: boolean;
-	getOpenNote: ()=> string;
+	getOpenNote: () => string;
 	setAutoScrollDisable: SetFunction<boolean>;
-	setButtonRef:  SetFunction<RefObject<HTMLButtonElement>>;
+	setButtonRef: SetFunction<RefObject<HTMLButtonElement>>;
 	setOpenedNote: SetFunction<OpenNote>;
-	setNotes:      SetFunction<Note[]>;
-	removeItem:    SetFunction<string>;
+	setNotes: SetFunction<Note[]>;
+	removeItem: SetFunction<string>;
 }
 
 export interface AudioStore {

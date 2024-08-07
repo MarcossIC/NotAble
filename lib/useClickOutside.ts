@@ -9,10 +9,10 @@ const useClickOutside = (ref: RefObject<HTMLElement>, handler: () => void, ignor
 		const isTouchAvalaible = isTouchDevice();
 		const listener = (event: MouseEvent | TouchEvent) => {
 			event.stopPropagation();
-			
+
 			const element = event.target as Node;
 			const isClickedOutsideRef = ref.current && !ref.current.contains(element);
-			const isClickedOutsideIgnoreRef = (!ignoreRef || !ignoreRef.current || !ignoreRef.current.contains(element));
+			const isClickedOutsideIgnoreRef = !ignoreRef || !ignoreRef.current || !ignoreRef.current.contains(element);
 			if (isClickedOutsideRef && isClickedOutsideIgnoreRef) handler();
 		};
 

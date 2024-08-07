@@ -12,6 +12,7 @@
 	--notable-primary-50: #181818;
 	--notable-primary-100: #1a1a1a;
 	--notable-primary-150: #1d1d1d;
+	--notable-primary-175: #232222;
 	--notable-primary-200: #2e2e2e;
 	--notable-primary-300: #4d4d4d;
 	--notable-primary-400: #828282;
@@ -19,6 +20,7 @@
 	--notable-primary-600: #d5d5d5f6;
 
 	--notable-text-white: #fcfcfcf6;
+	--notable-text-white-o60: rgba(255, 255, 255, 60%);
 
 	--notable-red-50: #e24a4a;
 	--notable-red-100: #e03838;

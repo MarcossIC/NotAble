@@ -26,7 +26,7 @@ const SettingNoteButton = ({ id }: SettingNoteButtonProp) => {
 		<button
 			ref={buttonRef}
 			onClick={click}
-			className={`rounded-full p-1 opacity-0 group-hover:opacity-100 transition-all duration-300 active:bg-[#232222] ${open && 'opacity-100 bg-notable-primary-50'}`}>
+			className={`rounded-full p-1 opacity-0 group-hover:opacity-100 transition-all duration-300 active:bg-notable-primary-175 ${open && 'opacity-100 bg-notable-primary-50'}`}>
 			<svg
 				height='24px'
 				viewBox='0 -960 960 960'

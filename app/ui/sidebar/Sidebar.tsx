@@ -17,7 +17,7 @@ const Sidebar = () => {
 					<div className='pl-2 pb-3 flex justify-start items-center'>
 						<CleanNotesButton />
 					</div>
-					<div className='mt-auto py-2'>
+					<div className='mt-auto py-2 pl-2'>
 						<SettingButton />
 					</div>
 					<div className='w-full mt-8 invisible max-h-0 opacity-0'></div>

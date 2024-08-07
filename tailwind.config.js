@@ -13,13 +13,17 @@ module.exports = {
 						50: 'var(--notable-primary-50)',
 						100: 'var(--notable-primary-100)',
 						150: 'var(--notable-primary-150)',
+						175: 'var(--notable-primary-175)',
 						200: 'var(--notable-primary-200)',
 						300: 'var(--notable-primary-300)',
 						400: 'var(--notable-primary-400)',
 						500: 'var(--notable-primary-500)',
 						600: 'var(--notable-primary-600)',
 					},
-					white: 'var(--notable-text-white)',
+					white: {
+						"DEFAULT": 'var(--notable-text-white)',
+						o60: 'var(--notable-text-white-o60)',
+					},
 				},
 			},
 			backgroundImage: {
@@ -48,8 +52,8 @@ module.exports = {
 				'slide-left-right-slow': 'slide-left-right 1s ease-in-out infinite alternate',
 			},
 			boxShadow: {
-				'custom-toast': "0 16px 24px 0px rgba(0, 0, 0, 0.14),  0 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 10px 8px 0px rgba(0, 0, 0, 0.15)",
-			}
+				'custom-toast': '0 16px 24px 0px rgba(0, 0, 0, 0.14),  0 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 10px 8px 0px rgba(0, 0, 0, 0.15)',
+			},
 		},
 	},
 	plugins: [],

@@ -26,7 +26,7 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
 	const body = await req.json();
-	const ID = body["ID"] || "" as string;
+	const ID = body['ID'] || ('' as string);
 	if (!ID) {
 		return NextResponse.json({ message: 'ID is required' }, { status: 400 });
 	}
@@ -34,9 +34,9 @@ export async function POST(req: Request) {
 	try {
 		await sql<NoteDB>`DELETE FROM note WHERE id = ${ID}`;
 
-		return NextResponse.json({ success: true}, { status: 200 });
-	} catch(e: unknown){
-		console.log("Error: ", e);
+		return NextResponse.json({ success: true }, { status: 200 });
+	} catch (e: unknown) {
+		console.log('Error: ', e);
 		return NextResponse.json({ error: e }, { status: 400 });
 	}
 }

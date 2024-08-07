@@ -10,17 +10,17 @@ const useNoteStore = create<NotesStore>()((set: ZustandSetter<NotesStore>, $get)
 	autoScrollDisable: false,
 	setAutoScrollDisable: (updated) => set({ autoScrollDisable: updated }),
 	getOpenNote: () => {
-		const {openedNote,notes} = $get();
+		const { openedNote, notes } = $get();
 		const id = openedNote.id;
-		return notes.filter((note) => note.id === id)[0].note || "";
+		return notes.filter((note) => note.id === id)[0].note || '';
 	},
 	setButtonRef: (updated) => set({ buttonRef: updated }),
 	setOpenedNote: (updated) => set({ openedNote: updated }),
 	setNotes: (updated) => set({ notes: updated, notesCount: updated.length }),
-	removeItem: (itemId)=>{
-		const {notes} = $get();
-		set({notes: notes.filter((note) => note.id !== itemId)})
-	}
+	removeItem: (itemId) => {
+		const { notes } = $get();
+		set({ notes: notes.filter((note) => note.id !== itemId) });
+	},
 }));
 
 export default useNoteStore;

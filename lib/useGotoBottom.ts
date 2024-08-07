@@ -5,27 +5,22 @@ type UseGotoBottomProps = {
 	disable: boolean;
 	toggleDisable?: () => void;
 	activeForLoading?: boolean;
-  };
-  
-  export default function useGotoBottom({
-	container,
-	disable,
-	toggleDisable,
-	activeForLoading = false
-  }: UseGotoBottomProps) {
+};
+
+export default function useGotoBottom({ container, disable, toggleDisable, activeForLoading = false }: UseGotoBottomProps) {
 	const lastHeight = useRef(0);
 	const scrollToBottom = useCallback(() => {
 		if (container.current && !disable) {
 			const { scrollHeight } = container.current;
-			if(scrollHeight > lastHeight.current){
+			if (scrollHeight > lastHeight.current) {
 				lastHeight.current = scrollHeight;
 				container.current.scrollTop = scrollHeight;
 			}
 		}
-		if(disable && toggleDisable) toggleDisable();
-	}, [container, disable,lastHeight.current]);
+		if (disable && toggleDisable) toggleDisable();
+	}, [container, disable, lastHeight.current]);
 
 	useEffect(() => {
 		scrollToBottom();
-	}, [container.current, container.current?.scrollHeight,activeForLoading]);
+	}, [container.current, container.current?.scrollHeight, activeForLoading]);
 }

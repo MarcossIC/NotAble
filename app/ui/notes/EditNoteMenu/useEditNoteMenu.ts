@@ -1,38 +1,37 @@
 import { useCallback, useMemo, useRef } from 'react';
-import useNoteStore  from '../../../../lib/store/useNoteStore';
+import useNoteStore from '../../../../lib/store/useNoteStore';
 import useDeleteNote from '../../../../lib/useDeleteNote';
 import useCopyToClipboard from '../../../../lib/useCopyToClipboard';
 import useClickOutside from '../../../../lib/useClickOutside';
 import toast from 'react-hot-toast';
 
-
 export const useEditNoteMenu = () => {
-  const { openedNote, setOpenedNote, buttonRef, getOpenNote,removeItem,setAutoScrollDisable } = useNoteStore();
-  const { handleDeleteNote } = useDeleteNote();
-  const [copyToClipboard] = useCopyToClipboard();
-  const menuRef = useRef<HTMLDivElement>(null);
+	const { openedNote, setOpenedNote, buttonRef, getOpenNote, removeItem, setAutoScrollDisable } = useNoteStore();
+	const { handleDeleteNote } = useDeleteNote();
+	const [copyToClipboard] = useCopyToClipboard();
+	const menuRef = useRef<HTMLDivElement>(null);
 
-  const open = useMemo(() => openedNote.id !== ' ' && Boolean(openedNote.id), [openedNote.id, openedNote.y]);
+	const open = useMemo(() => openedNote.id !== ' ' && Boolean(openedNote.id), [openedNote.id, openedNote.y]);
 
-  const closeMenu = useCallback(() => {
-    if (open) setOpenedNote({ id: '', x: 0, y: 0 });
-  }, [open, setOpenedNote]);
+	const closeMenu = useCallback(() => {
+		if (open) setOpenedNote({ id: '', x: 0, y: 0 });
+	}, [open, setOpenedNote]);
 
-  useClickOutside(menuRef, closeMenu, buttonRef!);
+	useClickOutside(menuRef, closeMenu, buttonRef!);
 
-  const handleCopy = useCallback(() => {
-    copyToClipboard(getOpenNote());
-    closeMenu();
-    toast.success("Text copied");
-  }, [copyToClipboard, getOpenNote]);
-  const handleRemoveNote = useCallback(() => {
-    handleDeleteNote(openedNote.id);
-    removeItem(openedNote.id);
-    closeMenu();
-    setAutoScrollDisable(false);
-  }, [openedNote,removeItem]);
+	const handleCopy = useCallback(() => {
+		copyToClipboard(getOpenNote());
+		closeMenu();
+		toast.success('Text copied');
+	}, [copyToClipboard, getOpenNote]);
+	const handleRemoveNote = useCallback(() => {
+		handleDeleteNote(openedNote.id);
+		removeItem(openedNote.id);
+		closeMenu();
+		setAutoScrollDisable(false);
+	}, [openedNote, removeItem]);
 
-  const position = { left: `${openedNote.x}px`, top: `${openedNote.y}px` };
+	const position = { left: `${openedNote.x}px`, top: `${openedNote.y}px` };
 
-  return { menuRef, open, position, handleRemoveNote, handleCopy };
+	return { menuRef, open, position, handleRemoveNote, handleCopy };
 };
