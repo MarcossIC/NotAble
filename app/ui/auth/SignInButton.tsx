@@ -20,7 +20,7 @@ const SignInButton = () => {
 		<>
 			<button
 				ref={openRef}
-				className={`${css.authButton} ${css.signIn}`}
+				className={`float-button-rounded ${css.authButton} ${css.signIn}`}
 				onClick={togle}
 				aria-label='Sign in button'>
 				<SignIcon />

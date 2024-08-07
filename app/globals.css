@@ -163,3 +163,35 @@ ul {
 		outline: transparent;
 	}
 }
+
+.toast-round-success {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		content: ' ';
+		width: 125px;
+		height: 125px;
+		overflow: hidden;
+		order: 3;
+		flex-grow: 0;
+		background: radial-gradient(50% 50% at 50% 50%, rgba(0, 237, 81, 0.12) 0%, rgba(0, 237, 123, 0) 100%);
+		top: -75%;
+		left: -30%;
+	}
+
+	& .go685806154 {
+		position: relative;
+		&::before {
+			position: absolute;
+			content: ' ';
+			width: 130%;
+			height: 130%;
+			border-radius: 100%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #303746;
+		}
+	}
+}

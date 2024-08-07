@@ -46,6 +46,9 @@ module.exports = {
 				'slide-left-right-fast': 'slide-left-right 400ms ease-in-out infinite alternate',
 				'slide-left-right-slow': 'slide-left-right 1s ease-in-out infinite alternate',
 			},
+			boxShadow: {
+				'custom-toast': "0 16px 24px 0px rgba(0, 0, 0, 0.14),  0 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 10px 8px 0px rgba(0, 0, 0, 0.15)",
+			}
 		},
 	},
 	plugins: [],

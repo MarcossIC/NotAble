@@ -3,6 +3,7 @@ import useNoteStore  from '../../../../lib/store/useNoteStore';
 import useDeleteNote from '../../../../lib/useDeleteNote';
 import useCopyToClipboard from '../../../../lib/useCopyToClipboard';
 import useClickOutside from '../../../../lib/useClickOutside';
+import toast from 'react-hot-toast';
 
 
 export const useEditNoteMenu = () => {
@@ -22,6 +23,7 @@ export const useEditNoteMenu = () => {
   const handleCopy = useCallback(() => {
     copyToClipboard(getOpenNote());
     closeMenu();
+    toast.success("Text copied");
   }, [copyToClipboard, getOpenNote]);
   const handleRemoveNote = useCallback(() => {
     handleDeleteNote(openedNote.id);
