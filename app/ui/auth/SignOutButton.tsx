@@ -5,7 +5,7 @@ import LogoutIcon from '../icons/LogoutIcon';
 export default function SignOutButton() {
 	return (
 		<button
-			className={`${css.authButton} ${css.logOut}`}
+			className={`${css.authButton} ${css.logOut} float-button-rounded`}
 			onClick={() => signOut({ redirect: false })}
 			aria-label='Sign out button'>
 			<LogoutIcon />

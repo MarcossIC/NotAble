@@ -88,6 +88,10 @@ pre {
 	text-wrap: pretty;
 }
 
+.float-button-rounded {
+	@apply absolute right-[1%] z-10 rounded-2xl scale-[1.1] px-3 py-2 border-2 border-notable-primary-400 hover:border-notable-primary-500 w-12 flex justify-center items-center transition-all duration-300;
+}
+
 .rhap_container {
 	background-color: var(--notable-primary-50) !important;
 	box-shadow: none !important;
@@ -132,5 +136,30 @@ ul {
 
 	& li {
 		list-style-type: disc;
+	}
+}
+
+.scrollbar-style {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+	scrollbar-gutter: stable both-edges;
+
+	&::-webkit-scrollbar,
+	&::-webkit-scrollbar-thumb,
+	&::-webkit-scrollbar-track {
+		border-radius: 1.5rem;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: transparent;
+	}
+	&::-webkit-scrollbar-button,
+	&::-webkit-scrollbar-button:single-button:vertical:decrement,
+	&::-webkit-scrollbar-button:vertical:single-button:increment,
+	&::-webkit-scrollbar-button:vertical:increment,
+	&::-webkit-scrollbar-button:vertical:decrement {
+		border-width: 0px;
+		border-color: transparent;
+		background: transparent;
+		outline: transparent;
 	}
 }

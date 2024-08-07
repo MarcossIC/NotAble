@@ -3,15 +3,14 @@ import type { ChildrenProps } from '@/app/models/types';
 
 interface ShowProps extends ChildrenProps {
 	when: boolean;
+	updateAnd?: unknown;
 	fallBack?: ReactNode;
 }
 const MemoizedShow = memo(
 	function Show({ when, fallBack, children }: ShowProps) {
-		if (when) return children;
-
-		return fallBack;
+		return when ? children : fallBack;
 	},
-	(prev, next) => prev.when === next.when
+	(prev, next) => prev.when === next.when && prev.updateAnd === next.updateAnd
 );
 
 export default MemoizedShow;

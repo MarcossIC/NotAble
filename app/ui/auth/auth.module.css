@@ -25,24 +25,12 @@
 }
 
 .authButton {
-	--button-w: 48px;
 	--button-text: ' ';
 	--button-text-opacity: 0;
-	--button-border-color: var(--notable-primary-400);
-	position: absolute;
 	top: 1%;
-	right: 1%;
-	z-index: 10;
 
-	border-radius: 1rem;
-	border: 2px solid var(--button-border-color);
-	padding-inline: 0.6rem;
-	padding-block: 0.4rem;
-	width: var(--button-w);
-	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-	transition: all 400ms ease 120ms;
 
 	& svg {
 		position: relative;
@@ -60,10 +48,8 @@
 	}
 
 	&:hover {
-		--button-w: 120px;
-
+		width: 120px;
 		--button-text-opacity: 1;
-		--button-border-color: var(--notable-primary-500);
 	}
 }
 

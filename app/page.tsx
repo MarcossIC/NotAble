@@ -4,11 +4,13 @@ import NotesPad from './ui/notes/NotePad/NotesPad';
 import AuthenticationButton from './ui/auth/AuthenticationButton';
 import NoteResume from './ui/resume/NoteResume';
 import EditNoteMenu from './ui/notes/EditNoteMenu/EditNoteMenu';
+import ExpandResumeButton from './ui/resume/ExpandResumeButton';
 
 export default function App() {
 	return (
 		<div className='flex flex-col w-full h-full min-h-dvh justify-end'>
 			<AuthenticationButton />
+			<ExpandResumeButton />
 			<NotesPad />
 			<NoteResume />
 			<EditNoteMenu />
