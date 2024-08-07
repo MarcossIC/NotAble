@@ -13,7 +13,6 @@ const AIButton = () => {
 		fetch('/api/resume', { method: 'POST', body: JSON.stringify({ notes }) })
 			.then((res) => res.json())
 			.then((body) => {
-				console.log({ body });
 				setResume(body.text);
 			});
 	};

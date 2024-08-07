@@ -2,11 +2,13 @@ import PlusIcon from '../icons/PlusIcon';
 
 const CleanNotesButton = () => {
 	return (
-		<button className='rounded-full bg-notable-primary-100 p-3 text-notable-white-o60'>
-			<div className='w-full h-full'>
-				<PlusIcon />
-			</div>
-		</button>
+		<div className='pl-2 pb-3 flex justify-start items-center'>
+			<button className='rounded-full bg-notable-primary-100 p-3 text-notable-white-o60'>
+				<div className='w-full h-full'>
+					<PlusIcon />
+				</div>
+			</button>
+		</div>
 	);
 };
 
