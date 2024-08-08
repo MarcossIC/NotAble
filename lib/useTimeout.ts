@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-type AcceptCallback = () => void
+type AcceptCallback = () => void;
 
 const useTimeout = (callback: AcceptCallback, delay: number) => {
 	const timeoutRef = useRef<number | null>(null);

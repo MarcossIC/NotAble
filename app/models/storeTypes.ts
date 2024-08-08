@@ -57,3 +57,16 @@ export interface SidebarStore {
 	setOpenSettings: SetFunction<OpenMenu>;
 	setOpen: SetFunction<boolean>;
 }
+
+export interface ApiKeyStore {
+	open: boolean;
+	speechService: string;
+	speechApiKey: string;
+	aiService: string;
+	aiApiKey: string;
+	setSpeechService: SetFunction<string>;
+	setSpeechApiKey: SetFunction<string>;
+	setAiService: SetFunction<string>;
+	setAiApiKey: SetFunction<string>;
+	setOpen: SetFunction<boolean>;
+}
