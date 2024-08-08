@@ -6,6 +6,7 @@ import Loading from './ui/core/Loading';
 import AuthLoaded from './ui/auth/AuthLoaded';
 import Sidebar from './ui/sidebar/Sidebar';
 import SidebarOpenButton from './ui/sidebar/SidebarOpenButton';
+import ApiKeysModal from './ui/ApiKeyModal/ApiKeysModal';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 						<AuthLoaded fallback={<Loading />}>
 							<SidebarOpenButton />
 							<Sidebar />
+							<ApiKeysModal />
 							{children}
 						</AuthLoaded>
 					</div>

@@ -1,13 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback } from 'react';
 import { MODAL_APIKEY_INPUT } from '../../models/apiKeyInputEnum';
+import useApiKeyStore from '@/lib/store/useApiKeyStore';
 
 const useApiKeyModal = () => {
-	const [speechService, setSpeechService] = useState('Select your Speech service');
-	const [speechApiKey, setSpeechApiKey] = useState('');
-	const [aiService, setAiService] = useState('Select your AI service');
-	const [aiApiKey, setAiApiKey] = useState('');
+	const { open, setOpen, setSpeechApiKey, setSpeechService, setAiService, setAiApiKey, speechService, speechApiKey, aiService, aiApiKey } =
+		useApiKeyStore();
 
 	const handleChange = (input: MODAL_APIKEY_INPUT, value: string) => {
 		switch (input) {
@@ -36,14 +35,19 @@ const useApiKeyModal = () => {
 			aiApiKey,
 		});
 	};
+	const onClose = useCallback(()=> {
+		setOpen(false);
+	}, [])
 
 	return {
+		open,
 		speechService,
 		speechApiKey,
 		aiService,
 		aiApiKey,
 		handleChange,
 		handleSave,
+		onClose
 	};
 };
 

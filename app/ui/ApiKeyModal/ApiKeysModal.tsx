@@ -7,11 +7,12 @@ import CustomSelect from '../core/CustomSelect';
 import { AiServiceValues, SpeechServiceValues } from '../../models/servicesOptionValues';
 
 const ApiKeysModal = () => {
-	const { speechService, speechApiKey, aiService, aiApiKey, handleChange, handleSave } = useApiKeyModal();
+	const { open, speechService, speechApiKey, aiService, aiApiKey, handleChange, handleSave, onClose } = useApiKeyModal();
 
 	return (
 		<ModalWrapper
-			open={true}
+			open={open}
+			onClose={onClose}
 			className='w-full max-w-[450px] h-auto'>
 			<div className='w-full p-4 flex flex-col gap-y-4'>
 				<div className='relative px-2'>
@@ -59,7 +60,11 @@ const ApiKeysModal = () => {
 				</div>
 
 				<div className='w-full flex gap-x-3 justify-end items-center'>
-					<button className='w-full max-w-[150px] flex justify-center items-center py-2 bg-notable-primary-100 rounded-md'>Cancel</button>
+					<button
+						onClick={onClose}
+						className='w-full max-w-[150px] flex justify-center items-center py-2 bg-notable-primary-100 rounded-md'>
+						Cancel
+					</button>
 					<button
 						onClick={() => handleSave()}
 						className='w-full max-w-[150px] rounded-md bg-notable-red-200 flex justify-center items-center py-2'>

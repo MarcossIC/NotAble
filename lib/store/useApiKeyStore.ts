@@ -9,9 +9,9 @@ const useApiKeyStore = create<ApiKeyStore>()(
 	stateInit(
 		(set) => ({
 			open: false,
-			speechService: '',
+			speechService: 'Select your Speech service',
 			speechApiKey: '',
-			aiService: '',
+			aiService: 'Select your AI service',
 			aiApiKey: '',
 			setSpeechService: (updated) => set({ speechService: updated }),
 			setSpeechApiKey: (updated) => set({ speechApiKey: updated }),

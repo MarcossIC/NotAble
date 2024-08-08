@@ -6,7 +6,6 @@ import NoteResume from './ui/resume/NoteResume';
 import EditNoteMenu from './ui/notes/EditNoteMenu/EditNoteMenu';
 import ExpandResumeButton from './ui/resume/ExpandResumeButton';
 import { Toaster } from 'react-hot-toast';
-import ApiKeysModal from './ui/ApiKeyModal/ApiKeysModal';
 
 export default function App() {
 	return (
@@ -34,7 +33,6 @@ export default function App() {
 				<Recorder />
 				<AudioMediaPlayer />
 			</div>
-			<ApiKeysModal />
 		</div>
 	);
 }

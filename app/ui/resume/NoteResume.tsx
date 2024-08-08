@@ -7,18 +7,19 @@ import { useEffect, useRef } from 'react';
 import CloseResumeButton from './CloseResumeButton';
 import Show from '../core/Show';
 
-function formatText(text: string) {
-	text = text.replace('**Puntos más importantes:**', '<br/><br/><strong>Puntos más importantes:</strong><br/>');
+function formatText(rawText: string = '') {
+	console.log({ text: rawText });
+	let formatText = rawText?.replace('**Puntos más importantes:**', '<br/><br/><strong>Puntos más importantes:</strong><br/>');
 	//text = text.replace(/\* /g, '<br/>* ');
-	const listItems = text.match(/\* .+(\n\* .+)*/);
+	const listItems = formatText?.match(/\* .+(\n\* .+)*/);
 	if (listItems) {
 		const items = listItems[0]
 			.split('\n')
 			.map((item) => item.replace(/\* /, '<li>') + '</li>')
 			.join('');
-		text = text.replace(listItems[0], `<ul>${items}</ul>`);
+		formatText = formatText?.replace(listItems[0], `<ul>${items}</ul>`);
 	}
-	return text;
+	return formatText;
 }
 
 export default function NoteResume() {

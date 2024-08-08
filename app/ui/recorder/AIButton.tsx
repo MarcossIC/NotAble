@@ -20,7 +20,7 @@ const getResume = async (notes: Note[]) => {
 		}
 
 		const body = await response.json();
-		return body.text;
+		return body;
 	} catch (error) {
 		console.error(error);
 		throw error;
@@ -33,7 +33,7 @@ const AIButton = () => {
 		setResume('');
 		setOpen(true);
 		getResume(notes).then((body) => {
-			setResume(body.text);
+			setResume(body.text || '');
 		});
 	};
 
