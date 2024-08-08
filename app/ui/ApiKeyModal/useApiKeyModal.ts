@@ -35,9 +35,9 @@ const useApiKeyModal = () => {
 			aiApiKey,
 		});
 	};
-	const onClose = useCallback(()=> {
+	const onClose = useCallback(() => {
 		setOpen(false);
-	}, [])
+	}, []);
 
 	return {
 		open,
@@ -47,7 +47,7 @@ const useApiKeyModal = () => {
 		aiApiKey,
 		handleChange,
 		handleSave,
-		onClose
+		onClose,
 	};
 };
 

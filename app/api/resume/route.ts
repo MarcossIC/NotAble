@@ -17,8 +17,9 @@ export async function POST(req: Request) {
 		.join(' ');
 
 	try {
+		const groqOpenAi = groq('llama-3.1-8b-instant');
 		const result = await generateText({
-			model: groq('llama-3.1-8b-instant'),
+			model: groqOpenAi,
 			messages: [
 				{
 					role: 'user',

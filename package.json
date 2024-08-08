@@ -24,14 +24,14 @@
 	},
 	"dependencies": {
 		"@ai-sdk/openai": "latest",
-		"@ai-sdk/provider": "^0.0.14",
-		"@ai-sdk/provider-utils": "^1.0.5",
+		"@ai-sdk/provider": "^0.0.17",
+		"@ai-sdk/provider-utils": "^1.0.9",
 		"@ai-sdk/react": "latest",
 		"@vercel/postgres": "^0.9.0",
-		"ai": "3.2.27",
+		"ai": "3.3.4",
 		"next": "14.2.5",
 		"next-auth": "^4.24.7",
-		"openai": "4.52.7",
+		"openai": "4.55.2",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"react-h5-audio-player": "3.9.3",
@@ -42,7 +42,7 @@
 		"zustand": "4.5.4"
 	},
 	"devDependencies": {
-		"@next/eslint-plugin-next": "^14.2.5",
+		"@next/eslint-plugin-next": "14.2.5",
 		"@types/node": "17.0.45",
 		"@types/react": "18.3.3",
 		"@types/react-dom": "18.3.0",
@@ -56,7 +56,7 @@
 		"lint-staged": "15.2.7",
 		"postcss": "8.4.39",
 		"prettier": "3.3.3",
-		"tailwindcss": "3.4.6",
+		"tailwindcss": "3.4.9",
 		"typescript": "5.1.6"
 	},
 	"keywords": []
