@@ -8,7 +8,20 @@ type NotesListProps = {
 	profile: string;
 };
 
-const getNotes = async (id: string) => fetch(`/api/notes`, { method: 'GET', priority: 'high', headers: { uuid: id } }).then((res) => res.json());
+const getNotes = async function getNotes(id: string): Promise<any> {
+	const response = await fetch(`/api/notes`, {
+		method: 'GET',
+		headers: {
+			uuid: id,
+		},
+	});
+
+	if (!response.ok) {
+		throw new Error(`Error fetching notes: ${response.status}`);
+	}
+
+	return await response.json();
+};
 
 export default function NotesList({ id, profile }: NotesListProps) {
 	const { textAudio, setLoading } = useAudioStore();

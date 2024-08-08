@@ -3,18 +3,38 @@ import useResumeStore from '@/lib/store/useResumePreferenceStore';
 import useNoteStore from '@/lib/store/useNoteStore';
 import { useMemo } from 'react';
 import Authenticated from '../auth/Authenticated';
+import type { Note } from '@/app/models/notesTypes';
 
+const getResume = async (notes: Note[]) => {
+	try {
+		const response = await fetch('/api/resume', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ notes }),
+		});
+
+		if (!response.ok) {
+			throw new Error(`Error posting resume: ${response.status}`);
+		}
+
+		const body = await response.json();
+		return body.text;
+	} catch (error) {
+		console.error(error);
+		throw error;
+	}
+};
 const AIButton = () => {
 	const { setOpen, open, setResume } = useResumeStore();
 	const { notes, notesCount } = useNoteStore();
 	const handleClick = () => {
 		setResume('');
 		setOpen(true);
-		fetch('/api/resume', { method: 'POST', body: JSON.stringify({ notes }) })
-			.then((res) => res.json())
-			.then((body) => {
-				setResume(body.text);
-			});
+		getResume(notes).then((body) => {
+			setResume(body.text);
+		});
 	};
 
 	const isDisabled = useMemo(() => notesCount === 0 || open, [notesCount, open]);
