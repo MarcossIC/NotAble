@@ -3,7 +3,7 @@
 import { Speechmatics } from 'speechmatics';
 
 const REGEX = /audio\/(\w+)(?:;codecs=\w+)?/;
-const apiKey = process.env.SPEECHMATICS_API_KEY!;
+const apiKey = process.env?.SPEECHMATICS_API_KEY || '';
 
 export default async function useSpeechmatics(audio: Blob | File, type: string) {
 	const client = new Speechmatics({ apiKey: apiKey });
