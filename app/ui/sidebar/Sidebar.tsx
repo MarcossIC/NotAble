@@ -14,7 +14,7 @@ const Sidebar = () => {
 			<aside
 				className={`w-full h-full min-h-dvh  grid grid-rows-[min-content_1fr] grid-cols-1 contain-inline-size`}
 				role='menubar'>
-				<div className='w-full h-[calc(100cqh-6rem)]  mt-24  grid grid-rows-[min-content_1fr] grid-cols-1 text-notable-white'>
+				<div className='w-full h-[calc(100cqh-6rem)]  mt-24  grid grid-rows-[min-content_1fr] grid-cols-1 text-notable-normal'>
 					<CleanNotesButton />
 					<SettingButton />
 

@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { forwardRef } from 'react';
-import Show from '../Show';
+import Show from '../core/Show';
 
 interface MenuContainerProps {
 	open: boolean;

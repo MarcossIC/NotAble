@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import NextAuthProvider from './SessionWrapper';
-import Loading from './ui/Loading';
+import Loading from './ui/core/Loading';
 import AuthLoaded from './ui/auth/AuthLoaded';
 import Sidebar from './ui/sidebar/Sidebar';
 import SidebarOpenButton from './ui/sidebar/SidebarOpenButton';

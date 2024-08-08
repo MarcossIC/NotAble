@@ -1,7 +1,7 @@
 'use client';
 
 import useResumeStore from '@/lib/store/useResumePreferenceStore';
-import Show from '../Show';
+import Show from '../core/Show';
 import Authenticated from '../auth/Authenticated';
 
 export default function ExpandResumeButton() {

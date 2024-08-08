@@ -5,7 +5,7 @@ import Authenticated from '../auth/Authenticated';
 import useClickOutside from '@/lib/useClickOutside';
 import { useEffect, useRef } from 'react';
 import CloseResumeButton from './CloseResumeButton';
-import Show from '../Show';
+import Show from '../core/Show';
 
 function formatText(text: string) {
 	text = text.replace('**Puntos más importantes:**', '<br/><br/><strong>Puntos más importantes:</strong><br/>');

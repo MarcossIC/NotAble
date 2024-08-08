@@ -20,9 +20,9 @@ module.exports = {
 						500: 'var(--notable-primary-500)',
 						600: 'var(--notable-primary-600)',
 					},
-					white: {
-						DEFAULT: 'var(--notable-text-white)',
-						o60: 'var(--notable-text-white-o60)',
+					normal: {
+						DEFAULT: 'var(--notable-text-color)',
+						o60: 'var(--notable-text-color-o60)',
 					},
 				},
 			},

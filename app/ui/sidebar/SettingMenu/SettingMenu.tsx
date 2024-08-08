@@ -14,13 +14,13 @@ const SettingMenu = () => {
 			className='shadow-custom-toast w-[9rem]'>
 			<MenuButton
 				onClick={() => {}}
-				className='text-notable-white text-sm flex gap-x-3 justify-start items-center py-2'>
+				className='text-notable-normal text-sm flex gap-x-3 justify-start items-center py-2'>
 				<DarkIcon />
 				Active Theme: Dark
 			</MenuButton>
 			<MenuButton
 				onClick={() => {}}
-				className='text-notable-white text-sm flex gap-x-3 justify-start items-center py-2'>
+				className='text-notable-normal text-sm flex gap-x-3 justify-start items-center py-2'>
 				<KeyIcon /> Api keys
 			</MenuButton>
 		</MenuContainer>

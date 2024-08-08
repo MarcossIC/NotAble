@@ -4,7 +4,7 @@ import useNotePad from './useNotePad';
 import NotesList from '@/app/ui/notes/NotesList';
 import NoteLoader from '@/app/ui/notes/NoteLoader';
 import css from '../notes.module.css';
-import Show from '@/app/ui/Show';
+import Show from '@/app/ui/core/Show';
 import Authenticated from '../../auth/Authenticated';
 import NoteBeforeLogin from '../../NoteBeforeLogin';
 
