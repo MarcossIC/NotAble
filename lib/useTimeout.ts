@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-const useTimeout = (callback: () => void, delay: number) => {
-	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-	const savedCallback = useRef(callback);
+type AcceptCallback = () => void
+
+const useTimeout = (callback: AcceptCallback, delay: number) => {
+	const timeoutRef = useRef<number | null>(null);
+	const savedCallback = useRef<AcceptCallback>(callback);
 	useEffect(() => {
 		savedCallback.current = callback;
 	}, [callback]);
@@ -16,7 +18,7 @@ const useTimeout = (callback: () => void, delay: number) => {
 
 	const oneExecute = useCallback(() => {
 		clear();
-		timeoutRef.current = setTimeout(() => savedCallback.current(), delay);
+		timeoutRef.current = window.setTimeout(() => savedCallback.current(), delay);
 	}, [clear, delay]);
 
 	useEffect(() => {

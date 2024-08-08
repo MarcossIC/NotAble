@@ -1,8 +1,12 @@
 import { useEffect, type RefObject } from 'react';
 
-const useExecuteOneScroll = (ref: RefObject<HTMLElement> | Document | Window, listener: EventListener) => {
+type Scrollable = HTMLElement | Document | Window;
+type ReferenceAccept = RefObject<HTMLElement> | Document | Window;
+type Listener = (event: Event) => void;
+
+const useExecuteOneScroll = (ref: ReferenceAccept, listener: Listener) => {
 	useEffect(() => {
-		const currentContainer = 'current' in ref ? ref.current : ref;
+		const currentContainer: Scrollable | null = 'current' in ref ? ref.current : ref;
 
 		if (currentContainer) currentContainer.addEventListener('scroll', listener);
 		return () => {
