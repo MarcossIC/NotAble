@@ -17,5 +17,5 @@ export const AiServiceValues = [
 	{
 		id: '02',
 		content: 'Groq',
-	}
+	},
 ];
