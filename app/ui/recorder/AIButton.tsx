@@ -33,6 +33,7 @@ const AIButton = () => {
 		setResume('');
 		setOpen(true);
 		getResume(notes).then((body) => {
+			console.log({ body });
 			setResume(body.text || '');
 		});
 	};
