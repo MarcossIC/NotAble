@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+	darkMode: 'class',  
+    lightMode: ['selector', '[data-theme="light"]'],
 	content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx,css}'],
 	theme: {
 		extend: {
@@ -24,6 +26,16 @@ module.exports = {
 						DEFAULT: 'var(--notable-text-color)',
 						o60: 'var(--notable-text-color-o60)',
 					},
+					tertiary: {
+						DEFAULT: 'var(--notable-tertiary)',
+						100: 'var(--notable-tertiary-100)',
+					},
+					green: {
+						100: 'var(--notable-green-100)',
+						200: 'var(--notable-green-100)',
+						accent: 'var(--notable-green-accent)',
+						blur: 'var(--notable-green-blur)',
+					}
 				},
 			},
 			backgroundImage: {
@@ -59,6 +71,12 @@ module.exports = {
 			},
 		},
 	},
+	variants: {
+        extend: {
+            backgroundColor: ['light'],  
+            textColor: ['light'],  
+        },
+    },
 	plugins: [
 		function ({ addVariant, e }) {
 			addVariant('before', ({ modifySelectors, separator }) => {
@@ -71,6 +89,11 @@ module.exports = {
 					return `.${e(`after${separator}${className}`)}::after`;
 				});
 			});
+			addVariant('light', ({ modifySelectors, separator }) => {
+                modifySelectors(({ className }) => {
+                    return `[data-theme="light"] .${e(`light${separator}${className}`)}`;
+                });
+            });
 		},
 	],
 };

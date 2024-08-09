@@ -19,7 +19,8 @@ export default function App() {
 				toastOptions={{
 					success: {
 						id: 'toast-success',
-						className: '!bg-[#242C32] !text-white !shadow-custom-toast toast-round-success overflow-hidden text-[17px] font-semibold !leading-6',
+						className:
+							'!bg-notable-tertiary !text-notable-normal !shadow-custom-toast toast-round-success overflow-hidden text-[17px] font-semibold !leading-6',
 
 						position: 'bottom-right',
 						ariaProps: {

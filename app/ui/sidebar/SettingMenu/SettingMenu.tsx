@@ -1,3 +1,4 @@
+import { useTheme } from 'next-themes';
 import DarkIcon from '../../icons/DarkIcon';
 import KeyIcon from '../../icons/KeyIcon';
 import MenuButton from '../../menu/MenuButton';
@@ -6,6 +7,8 @@ import useSettingMenu from './useSettingMenu';
 
 const SettingMenu = () => {
 	const [menuRef, settings, position] = useSettingMenu();
+	const { setTheme, theme } = useTheme();
+
 	return (
 		<MenuContainer
 			ref={menuRef}
@@ -13,10 +16,10 @@ const SettingMenu = () => {
 			position={position}
 			className='shadow-custom-toast w-[9rem]'>
 			<MenuButton
-				onClick={() => {}}
+				onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 				className='text-notable-normal text-sm flex gap-x-3 justify-start items-center py-2'>
 				<DarkIcon />
-				Active Theme: Dark
+				Active Theme: {theme}
 			</MenuButton>
 			<MenuButton
 				onClick={() => {}}

@@ -7,6 +7,7 @@ import AuthLoaded from './ui/auth/AuthLoaded';
 import Sidebar from './ui/sidebar/Sidebar';
 import SidebarOpenButton from './ui/sidebar/SidebarOpenButton';
 import ApiKeysModal from './ui/ApiKeyModal/ApiKeysModal';
+import AppTheme from './ui/core/AppTheme';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,16 +20,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
-				<NextAuthProvider>
-					<div className='flex w-full h-full flex-1 '>
-						<AuthLoaded fallback={<Loading />}>
-							<SidebarOpenButton />
-							<Sidebar />
-							<ApiKeysModal />
-							{children}
-						</AuthLoaded>
-					</div>
-				</NextAuthProvider>
+				<AppTheme>
+					<NextAuthProvider>
+						<div className='flex w-full h-full flex-1 '>
+							<AuthLoaded fallback={<Loading />}>
+								<SidebarOpenButton />
+								<Sidebar />
+								<ApiKeysModal />
+								{children}
+							</AuthLoaded>
+						</div>
+					</NextAuthProvider>
+				</AppTheme>
 			</body>
 		</html>
 	);

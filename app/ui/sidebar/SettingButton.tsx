@@ -27,7 +27,7 @@ const SettingButton = () => {
 				className={`pl-1 pr-3 h-9 w-full flex  cursor-pointer z-0 ${css.settingButton}`}>
 				<div
 					data-text={open ? 'Settings' : ''}
-					className={`relative rounded-full pl-2 w-full h-full flex justify-start items-center hover:bg-notable-primary-175 gap-x-4 after:content-attr after:flex`}>
+					className={`relative rounded-full pl-2 w-full h-full flex justify-start items-center hover:bg-notable-primary-175 active:bg-notable-primary-200 gap-x-4 after:content-attr after:flex`}>
 					<SettingIcon />
 				</div>
 			</button>

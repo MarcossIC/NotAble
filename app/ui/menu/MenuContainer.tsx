@@ -20,7 +20,11 @@ const MenuContainer = forwardRef<HTMLDivElement, MenuContainerProps>(function Me
 			style={position}>
 			<div
 				className={`outline-none bg-notable-primary-50 rounded-md flex flex-col transition-all duration-500 ${open ? 'w-[7.5rem] min-w-fit h-auto' : 'w-0 h-0'} ${className}`}>
-				<Show when={open}>{children}</Show>
+				<Show
+					when={open}
+					updateAnd={children}>
+					{children}
+				</Show>
 			</div>
 		</div>
 	);

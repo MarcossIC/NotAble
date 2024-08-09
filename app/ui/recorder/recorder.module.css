@@ -58,9 +58,14 @@
 	}
 }
 
+[data-theme='light'] .aiButton {
+	--aiButtonBg: var(--notable-primary-150);
+}
+
 .aiButton {
+	--aiButtonBg: var(--notable-primary-50);
 	margin-block-start: 18px;
-	background: var(--notable-primary-50);
+	background: var(--aiButtonBg);
 	padding: 14px;
 	margin-inline-end: 15px;
 	border-radius: 100%;
@@ -68,8 +73,8 @@
 	transition: all 300ms ease;
 
 	& svg {
-		color: var(--notablev1-primary-400);
-		--filter-color: #4657674f;
+		color: var(--notable-blue-100);
+		--filter-color: #5d7eab82;
 		filter: drop-shadow(2px 4px 6px var(--filter-color));
 	}
 
@@ -79,9 +84,9 @@
 	}
 
 	&:not(:disabled):hover {
-		background: var(--notable-primary-150);
+		background: var(--notable-primary-175);
 		& svg {
-			color: var(--notablev1-primary-500);
+			color: var(--notable-blue-200);
 			@apply animate-pulse duration-300;
 		}
 	}
