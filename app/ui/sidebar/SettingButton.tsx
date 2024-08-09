@@ -25,10 +25,12 @@ const SettingButton = () => {
 				ref={buttonRef}
 				onClick={click}
 				className={`pl-1 pr-3 h-9 w-full flex  cursor-pointer z-0 ${css.settingButton}`}>
-				<div
-					data-text={open ? 'Settings' : ''}
-					className={`relative rounded-full pl-2 w-full h-full flex justify-start items-center hover:bg-notable-primary-175 active:bg-notable-primary-200 gap-x-4 after:content-attr after:flex`}>
-					<SettingIcon />
+				<div className='relative rounded-full pl-2 h-full w-full hover:bg-notable-primary-175 active:bg-notable-primary-200 transition-colors duration-150'>
+					<div
+						data-text={open ? 'Settings' : ''}
+						className={`relative w-full h-full flex justify-start items-center gap-x-4 after:content-attr after:flex after:transition-all duration-500 ease-in ${open ? 'after:bg-opacity-100 after:w-full after:translate-y-0' : 'after:opacity-30 after:w-0 after:h-0 after:translate-y-4'}`}>
+						<SettingIcon />
+					</div>
 				</div>
 			</button>
 			<span className={settings.id === '' && !open ? css.settingText : 'hidden'}>Settings</span>
